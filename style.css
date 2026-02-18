@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pagina-agendamento: rgb(76, 79, 80, 100);
+    --servicos: rgb(75, 93, 101, 100);
+    --txt: #DEF5FF;
+    --caixaTxt: rgba(163, 227, 255, 0.20);
+    --place: rgba(214, 241, 253, 0.20);
+    --borda-neon: rgb(163, 277, 255);
+}
+
+/* ESTILOS GERAIS */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--txt);
+    background: rgb(56, 54, 54);
+}
+
+a {
+    text-decoration: none;
+    color: var(--txt);
+}
+
+.container {
+    display: flex;
+    /* Ativa o modo flex. */
+    /* justify-content: space-between;         /* Empurra o primeiro item para o top e o último para a base */
+    justify-content: flex-start;
+    /* Alinha tudo no topo, em ordem */
+    gap: 17px;
+    align-items: center;
+    /* Centraliza tudo hotrizontalmente */
+    flex-direction: column;
+    /* Emplia os itens (logo e texto) */
+    padding: 135px 0 100px 0;
+    /* Espaço interno: 135px no topo e 100px na base */
+    background: #353c3f;
+    width: 414px;
+    height: 896px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 30px 8px rgba(163, 277, 255);
+}
+
+.home {
+    padding: 0;
+}
+
+.home-main {
+    flex: 1;
+    align-self: stretch;
+    /* Ocupa a largura toda, ignorando o align-itens do pai */
+}
+
+/* TELA INICIAL (Login - Criar Conta) */
+.logo {
+    width: 312px;
+    height: 153px;
+}
+
+.nome-barbearia {
+    width: 244px;
+    height: 41px;
+    text-align: center;
+    margin-top: 17px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0px 4px 4px rgba(163, 277, 255, 0.25);
+}
+
+.barbearia {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* TELA LOGIN */
+
+.login {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.caixa {
+    position: relative;
+    /* Isso permite que o ícone 'flutue' lá dentro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 10px auto;
+}
+
+.icone {
+    position: absolute;
+    /* O icone sai do fluxo e flutua */
+    left: 25px;
+    /* Distancia da borda esqueda */
+    width: 18px;
+    /* Tamanho do icone */
+    height: 18px;
+    /* opacity: 0.6; */
+    /* Deixa ele mais discreto */
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.caixa input {
+    width: 100%;
+    height: 35px;
+    background: var(--caixaTxt);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+input::placeholder {
+    color: var(--place);
+}
+
+.label {
+    font-size: 1.2rem;
+    padding-left: 20px;
+}
+
+#botao-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#botao-login input {
+    width: 300px;
+    height: 45px;
+    border-radius: 20px;
+    background: black;
+    color: var(--txt);
+    font-size: 1.5rem;
+    border: none;
+    box-shadow: 1px 1px 10px 1px black; 
+
+}
+
+/* HOME */
+
+.pagina-inicial h1 {
+    margin: 57px 0 39px 44px;
+}
+
+#foto-barbearia {
+    display: flex;
+    margin: auto;
+    width: 351px;
+    height: 256px;
+    object-fit: cover;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
+nav h2 {
+    text-align: center;
+    width: 137px;
+    height: 41px;
+    margin: 49px 0 42px 0;
+    font-size: 2rem;
+}
+
+.servicos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 329px;
+    height: 177px;
+    gap: 15px;
+    margin-left: 43px;
+}
+
+.cortes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    border-radius: 20px;
+    height: 49px;
+    width: 329px;
+    font-size: 1.3rem;
+}
+
+.menu-footer {
+    width: 414px;
+    height: 50px;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1;
+}
+
+.menu {
+    object-fit: cover;
+}
+
+footer div .calendario {
+    background: var(--txt);
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendario {
+    position: relative;
+    top: -30px;
+}
+
+/* HOME-SERVIÇOS - ESCOLHA DO SERVIÇO */
+
+.home-servicos {
+    display: flex;
+    gap: 39px;
+    margin: 0;
+    width: 414px;
+    height: 354px;
+    background: var(--servicos);
+    padding: 0;
+    position: absolute;
+    /* Tira do fluxo normal */
+    z-index: 0;
+    /* Fica atrás */
+    border-radius: 20px;
+}
+
+.agendar {
+    font-size: 1.3rem;
+    width: 90%;
+    height: 25px;
+}
+
+.agendar p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botao-agendar {
+    background: black;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* AGENDAMENTO */
+
+.caixa-calendario {
+    background: var(--pagina-agendamento);
+    height: 767px;
+    width: 414px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+}
+
+#calendario {
+    background: var(--servicos);
+    width: 332px;
+    height: 256px;
+    margin-top: 80px;
+    border-radius: 15px;
+    display: grid;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 5px 1px var(--borda-neon);
+}
+
+#mes-ano {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    margin-top: 9px;
+    gap: 10px;
+}
+
+.dias-da-semana {
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    position: absolute;
+    top: 45px;
+    align-items: center;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: var(--txt);
+}
+
+#horas {
+    margin-top: 35px;
+    background: var(--servicos);
+    height: 62px;
+    width: 332px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 1px var(--borda-neon);
+    gap: 5px;
+}
+
+.horas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 47px;
+    height: 25px;
+    box-shadow: 0 0 5px 1px var(--borda-neon);
+    border-radius: 10px;
+}
+
+#container-cortes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 5px 1px var(--borda-neon);
+}
+
+#adicionar-corte {
+    display: flex;
+    justify-content: center;
+    width: 332px;
+    height: 52px;
+    background: var(--servicos);
+    box-shadow: 0 0 5px 1px var(--borda-neon);
+    border-radius: 15px;
+    margin-top: 42px;
+}
+
+#lista-servicos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 332px;
+    height: 52px;
+    border-radius: 15px;
+    background: var(--place);
+    box-shadow: 0 5px 5px 1px var(--borda-neon);
+}
+
+.cortes-escolhidos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 15px;
+    width: 100%;
+    height: 50px;
+}
+
+.finalizar {
+    background: black;
+    width: 329px;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px 1px black; 
+}

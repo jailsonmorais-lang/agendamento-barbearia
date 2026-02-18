@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container home">
+        <main class="home-main">
+            <div class="pagina-inicial">
+                <h1>Agendamento</h1>
+            </div>
+            <div class="caixa-calendario">
+                <div id="calendario">
+                    <div id="mes-ano">
+                        <button id="anterior">Anterior</button>
+                        <span id="mes">Março</span>
+                        <button id="proximo">Próximo</button>
+                    </div>
+                    <div class="dias-da-semana">
+                        <div class="dia">D</div>
+                        <div class="dia">S</div>
+                        <div class="dia">T</div>
+                        <div class="dia">Q</div>
+                        <div class="dia">Q</div>
+                        <div class="dia">S</div>
+                        <div class="dia">S</div>
+                    </div>
+                    <div id="meses"></div>
+                </div>
+                <div id="horas">
+                    <button id="hora-antes">Anterior</button>
+
+                    <div class="horas">09:00</div>
+                    <div class="horas">10:00</div>
+                    <div class="horas">11:00</div>
+                    <div class="horas">13:00</div>
+                    <button id="hora-depois">Próximas</button>
+                </div>
+                <div id="container-cortes">
+                    <div id="adicionar-corte">
+                        <button id="btn-adicionar-corte">Adicionar Serviço</button>
+                    </div>
+
+                    <div id="lista-servicos">
+                        <!-- JavaScript vai preencher aqui com as apoçoes de servições -->
+                    </div>
+                    <div class="cortes-escolhidos">
+                        <span>Corte Masculino</span>
+                        <button class="remover-servico">-</button>
+                    </div>
+                </div>
+                <div class="finalizar">
+                    <button>Finalizar Agendamento</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+

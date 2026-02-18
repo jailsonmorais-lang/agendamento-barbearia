@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <img class="logo" src="icones/974045.2.png" alt="logo">
+            <div class="nome-barbearia">
+                <h1 class="barbearia">Babearia Natan</h1>
+            </div>
+            <section>
+                <div class="faca-login">
+                    <h2 class="login">Faça seu Login</h2>
+                    <form>
+                        <div class="form-login">
+                            <div class="label">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="caixa">
+                                <img class="icone" src="icones/Vector1.png" alt="email"><input type="email" name="email"
+                                    id="email" placeholder="exemplo@exemplo.com" required>
+                            </div>
+                            <div class="label">
+                                <label for="password">Senha</label>
+                            </div>
+                            <div class="caixa">
+                                <img class="icone" src="/icones/lock.png" alt="cadeado"><input type="password"
+                                    name="password" id="password" placeholder="********" required>
+                            </div>
+                            <div id="cadastre-se">
+                                <p>Não tem conta?<a href="#cadastre-se">Cadastre-se</a></p>
+                                <a href="#esqueci-a-senha">Esqueceu a senha</a>
+                            </div>
+                            <div id="botao-login">
+                                <input class="login" type="button" value="Login" onclick="login()">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
