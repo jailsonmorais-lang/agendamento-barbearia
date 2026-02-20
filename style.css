@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+/* NAVEGAÇÃO ENTRE TELAS */
+
+
 :root {
     /* CORES PRINCIPAIS */
     --roxo-principal: #7C3AED;
@@ -71,7 +74,7 @@ body {
     animation: fadeIn 0.3s ease-in;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     color: var(--texto-principal);
     background: var(--fundo-principal);
@@ -96,20 +99,10 @@ a {
     padding: 0 0 100px 0;
     /* Espaço interno: 135px no topo e 100px na base */
     background: var(--fundo-secundario);
-    width: 414px;
-    height: 896px;
+    max-width: 414px;
+    min-height: 896px;
     margin: 0;
     box-shadow: 1px 1px 30px 8px var(--borda-clara);
-}
-
-.home {
-    padding: 0;
-}
-
-.home-main {
-    flex: 1;
-    align-self: stretch;
-    /* Ocupa a largura toda, ignorando o align-itens do pai */
 }
 
 /* TELA INICIAL (Login - Criar Conta) */
@@ -222,14 +215,14 @@ label {
 
 }
 
-#botao-login {
+.botao-login {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 30px;
 }
 
-#botao-login input {
+.botao-login input {
     width: 300px;
     height: 45px;
     border-radius: 20px;
@@ -241,7 +234,7 @@ label {
     box-shadow: 1px 1px 10px 1px var(--borda-roxo);
 }
 
-#botao-login input:hover {
+.botao-login input:hover {
     background: var(--roxo-principal);
     color: var(--fundo-secundario);
     transition: all 1s ease;
@@ -250,12 +243,13 @@ label {
 /* HOME */
 
 .pagina-inicial h1 {
-    margin: 30px 0 39px 44px;
+    width: 379px;
+    margin: 30px 0 0 30px;
     text-shadow: 0px 4px 4px var(--roxo-principal);
     color: rgba(255, 255, 255, 1);
 }
 
-#foto-barbearia {
+.foto-barbearia {
     display: flex;
     margin: auto;
     width: 100%;
@@ -271,10 +265,10 @@ nav h2 {
     text-align: center;
     width: 137px;
     height: 41px;
-    margin: 49px 0 42px 0;
     font-size: 2rem;
     text-shadow: 0px 4px 4px var(--roxo-principal);
     color: rgba(255, 255, 255, 1);
+    margin: 50px 0 30px 0;
 }
 
 .servicos {
@@ -285,7 +279,6 @@ nav h2 {
     width: 329px;
     height: 177px;
     gap: 30px;
-    margin-left: 43px;
 }
 
 .cortes:hover {
@@ -351,13 +344,9 @@ footer div .calendario {
     gap: 30px;
     margin: 0;
     width: 414px;
-    height: 180px;
+    height: auto;
     background: var(--servicos);
     padding: 0;
-    position: absolute;
-    /* Tira do fluxo normal */
-    z-index: 0;
-    /* Fica atrás */
     border-radius: 20px;
 }
 
@@ -399,6 +388,7 @@ footer div .calendario {
     flex-direction: column;
     align-items: center;
     border-radius: 20px 20px 0 0;
+    margin-top: 50px;
 }
 
 #calendario:hover {
