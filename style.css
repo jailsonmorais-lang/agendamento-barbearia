@@ -5,22 +5,76 @@
 }
 
 :root {
-    --pagina-agendamento: rgb(76, 79, 80, 100);
-    --servicos: rgb(75, 93, 101, 100);
-    --txt: #DEF5FF;
-    --caixaTxt: rgba(163, 227, 255, 0.20);
-    --place: rgba(214, 241, 253, 0.20);
-    --borda-neon: rgb(163, 277, 255);
+    /* CORES PRINCIPAIS */
+    --roxo-principal: #7C3AED;
+    /* Roxo vibrante - use em botões e destaque */
+    --roxo-escuro: #6D28D9;
+    /* Roxo mais escuro - use em hover e foco */
+    --roxo-claro: #A78BFA;
+    /* Roxo claro - use para hover suave */
+
+    /* FUNDOS */
+    --fundo-principal: #0F0F0F;
+    /* Preto quase puro - fundo geral */
+    --fundo-secundario: #1A1A1A;
+    /* Cinza muito escuro - containers, cards */
+    --fundo-terciario: #2D2D2D;
+    /* Cinza escuro - inputs, elementos interativos */
+
+    /* TEXTOS */
+    --texto-principal: #FFFFFF;
+    /* Branco - títulos e textos principais */
+    --texto-secundario: #D1D5DB;
+    /* Cinza claro - textos secundários */
+    --texto-desativado: #9CA3AF;
+    /* Cinza médio - textos desativados */
+
+    /* BORDAS */
+    --borda-clara: #404040;
+    /* Cinza médio - bordas normais */
+    --borda-roxo: #7C3AED;
+    /* Roxo - bordas com foco */
+    --borda-erro: #EF4444;
+    /* Vermelho - bordas de erro */
+    --borda-sucesso: #10B981;
+    /* Verde - bordas de sucesso */
+
+    /* ESTADOS */
+    --erro: #EF4444;
+    /* Vermelho para erros */
+    --sucesso: #10B981;
+    /* Verde para sucesso */
+    --aviso: #F59E0B;
+    /* Amarelo para avisos */
+    --info: #3B82F6;
+    /* Azul para informações */
+
+    /* SOMBRAS */
+    --sombra-suave: 0 4px 6px rgba(124, 58, 237, 0.1);
+    --sombra-media: 0 10px 15px rgba(124, 58, 237, 0.2);
+    --sombra-forte: 0 20px 25px rgba(124, 58, 237, 0.3);
 }
 
+
 /* ESTILOS GERAIS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 body {
+    animation: fadeIn 0.3s ease-in;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: var(--txt);
-    background: rgb(56, 54, 54);
+    color: var(--texto-principal);
+    background: var(--fundo-principal);
 }
 
 a {
@@ -39,13 +93,13 @@ a {
     /* Centraliza tudo hotrizontalmente */
     flex-direction: column;
     /* Emplia os itens (logo e texto) */
-    padding: 135px 0 100px 0;
+    padding: 0 0 100px 0;
     /* Espaço interno: 135px no topo e 100px na base */
-    background: #353c3f;
+    background: var(--fundo-secundario);
     width: 414px;
     height: 896px;
-    margin: 0 auto;
-    box-shadow: 1px 1px 30px 8px rgba(163, 277, 255);
+    margin: 0;
+    box-shadow: 1px 1px 30px 8px var(--borda-clara);
 }
 
 .home {
@@ -60,8 +114,12 @@ a {
 
 /* TELA INICIAL (Login - Criar Conta) */
 .logo {
-    width: 312px;
-    height: 153px;
+    margin-top: 0;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    box-shadow: var(--sombra-forte);
+    opacity: 60%;
 }
 
 .nome-barbearia {
@@ -72,18 +130,23 @@ a {
     margin-bottom: 40px;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0px 4px 4px rgba(163, 277, 255, 0.25);
+    box-shadow: none;
 }
 
 .barbearia {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px var(--roxo-principal);
+    color: rgba(255, 255, 255, 1);
+
 }
 
 /* TELA LOGIN */
 
-.login {
+div h2.login {
     text-align: center;
     margin-bottom: 25px;
+    text-shadow: 0 0 30px rgba(124, 58, 237, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 2rem;
 }
 
 .form-login {
@@ -120,20 +183,43 @@ a {
 .caixa input {
     width: 100%;
     height: 35px;
-    background: var(--caixaTxt);
     border-radius: 20px;
     border: none;
     outline: none;
     text-align: center;
+    background: var(--fundo-terciario);
+    color: var(--texto-principal);
+    box-shadow: var(--sombra-media);
 }
+
+
 
 input::placeholder {
-    color: var(--place);
+    color: var(--texto-desativado);
 }
 
-.label {
+label {
     font-size: 1.2rem;
     padding-left: 20px;
+    text-shadow: var(--sombra-forte);
+    color: var(--roxo-claro);
+}
+
+#cadastre-se {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#retorno {
+    margin-top: 20px;
+    width: 300px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #botao-login {
@@ -147,28 +233,38 @@ input::placeholder {
     width: 300px;
     height: 45px;
     border-radius: 20px;
-    background: black;
     color: var(--txt);
     font-size: 1.5rem;
     border: none;
-    box-shadow: 1px 1px 10px 1px black; 
+    background: var(--fundo-terciario);
+    transition: all 1s ease;
+    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
+}
 
+#botao-login input:hover {
+    background: var(--roxo-principal);
+    color: var(--fundo-secundario);
+    transition: all 1s ease;
 }
 
 /* HOME */
 
 .pagina-inicial h1 {
-    margin: 57px 0 39px 44px;
+    margin: 30px 0 39px 44px;
+    text-shadow: 0px 4px 4px var(--roxo-principal);
+    color: rgba(255, 255, 255, 1);
 }
 
 #foto-barbearia {
     display: flex;
     margin: auto;
-    width: 351px;
-    height: 256px;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
     border-radius: 30px;
     margin-top: 30px;
+    box-shadow: var(--sombra-media);
+    opacity: 60%;
 }
 
 nav h2 {
@@ -177,6 +273,8 @@ nav h2 {
     height: 41px;
     margin: 49px 0 42px 0;
     font-size: 2rem;
+    text-shadow: 0px 4px 4px var(--roxo-principal);
+    color: rgba(255, 255, 255, 1);
 }
 
 .servicos {
@@ -186,25 +284,33 @@ nav h2 {
     align-items: center;
     width: 329px;
     height: 177px;
-    gap: 15px;
+    gap: 30px;
     margin-left: 43px;
+}
+
+.cortes:hover {
+    background: var(--roxo-principal);
+    color: var(--fundo-secundario);
+    transition: all 1s ease;
 }
 
 .cortes {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: black;
     border-radius: 20px;
     height: 49px;
     width: 329px;
     font-size: 1.3rem;
+    background: var(--fundo-terciario);
+    transition: all 1s ease;
+    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
 }
 
 .menu-footer {
     width: 414px;
     height: 50px;
-    background: rgb(0, 0, 0);
+    background: var(--fundo-principal);
     display: flex;
     justify-content: space-around;
     position: relative;
@@ -212,7 +318,13 @@ nav h2 {
 }
 
 .menu {
+    margin-top: 5px;
     object-fit: cover;
+}
+
+footer div .calendario:hover {
+    background: var(--roxo-escuro);
+    transition: all 1s ease;
 }
 
 footer div .calendario {
@@ -223,6 +335,8 @@ footer div .calendario {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--roxo-claro);
+    transition: all 1s ease;
 }
 
 .calendario {
@@ -234,10 +348,10 @@ footer div .calendario {
 
 .home-servicos {
     display: flex;
-    gap: 39px;
+    gap: 30px;
     margin: 0;
     width: 414px;
-    height: 354px;
+    height: 180px;
     background: var(--servicos);
     padding: 0;
     position: absolute;
@@ -258,21 +372,28 @@ footer div .calendario {
     justify-content: space-between;
 }
 
+.botao-agendar:hover {
+    background: var(--roxo-principal);
+    color: var(--fundo-terciario);
+    transition: all 1s ease;
+}
+
 .botao-agendar {
-    background: black;
+    background: var(--fundo-terciario);
     width: 100px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    transition: all 1s ease;
 }
 
 /* AGENDAMENTO */
 
 .caixa-calendario {
-    background: var(--pagina-agendamento);
-    height: 767px;
+    background: var(--fundo-se);
+    height: 795px;
     width: 414px;
     display: flex;
     flex-direction: column;
@@ -280,16 +401,22 @@ footer div .calendario {
     border-radius: 20px 20px 0 0;
 }
 
+#calendario:hover {
+    box-shadow: 0 0 5px 1px var(--roxo-escuro);
+    transition: all 1s ease;
+}
+
 #calendario {
-    background: var(--servicos);
+    background: var(--fundo-terciario);
     width: 332px;
     height: 256px;
-    margin-top: 80px;
+    margin-top: 10px;
     border-radius: 15px;
     display: grid;
     justify-content: center;
     position: relative;
-    box-shadow: 0 0 5px 1px var(--borda-neon);
+    box-shadow: 0 0 5px 1px var(--roxo-claro);
+    transition: all 1s ease;
 }
 
 #mes-ano {
@@ -311,12 +438,21 @@ footer div .calendario {
     position: absolute;
     top: 45px;
     align-items: center;
+    color: var(--texto-secundario);
+    box-shadow: 0 0 10px 1px var(--fundo-principal);
+    text-shadow: 0 1px 5px var(--fundo-principal);
+    transition: all 1s ease;
+}
+
+.dias-da-semana:hover {
+    box-shadow: 0 0 10px 1px var(--roxo-claro);
+    transition: all 3s ease;
 }
 
 button {
     background: transparent;
-    border: none;
-    color: var(--txt);
+    border: none;    
+    color: var(--texto-secundario);
 }
 
 #horas {
@@ -328,7 +464,7 @@ button {
     border-radius: 20px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 5px 1px var(--borda-neon);
+    border: 1px groove var(--fundo-terciario);
     gap: 5px;
 }
 
@@ -339,8 +475,15 @@ button {
     text-align: center;
     width: 47px;
     height: 25px;
-    box-shadow: 0 0 5px 1px var(--borda-neon);
     border-radius: 10px;
+    transition: all 1s ease;
+    border: 1px groove var(--fundo-terciario);
+}
+
+.horas:hover {
+    background: var(--roxo-escuro);
+    color: var(--fundo-terciario);
+    transition: all 1s ease;
 }
 
 #container-cortes {
@@ -349,7 +492,14 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 0 5px 1px var(--borda-neon);
+    transition: all 1s ease;
+}
+
+#adicionar-corte:hover {
+    box-shadow: 0 0 5px 1px var(--roxo-claro);
+    border-radius: 10px;
+    transition: all 1s ease;
+
 }
 
 #adicionar-corte {
@@ -357,10 +507,8 @@ button {
     justify-content: center;
     width: 332px;
     height: 52px;
-    background: var(--servicos);
-    box-shadow: 0 0 5px 1px var(--borda-neon);
-    border-radius: 15px;
-    margin-top: 42px;
+    margin-bottom: 30px;
+    border: 1px groove var(--fundo-terciario);
 }
 
 #lista-servicos {
@@ -369,9 +517,8 @@ button {
     justify-content: center;
     width: 332px;
     height: 52px;
-    border-radius: 15px;
-    background: var(--place);
-    box-shadow: 0 5px 5px 1px var(--borda-neon);
+    border: 1px groove var(--fundo-terciario);
+    margin-bottom: 30px;
 }
 
 .cortes-escolhidos {
@@ -381,15 +528,7 @@ button {
     padding: 0 10px 0 15px;
     width: 100%;
     height: 50px;
-}
+    margin-top: 30px;
+    border: 1px groove var(--fundo-terciario);
 
-.finalizar {
-    background: black;
-    width: 329px;
-    height: 49px;
-    display: flex;
-    justify-content: center;
-    margin-top: 45px;
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px 1px black; 
 }
