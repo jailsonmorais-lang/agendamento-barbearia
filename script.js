@@ -48,12 +48,12 @@ function mudarTela(idTela) {
     telaSelecionada.classList.add('ativa')
 }
 
-document.querySelector('#tela-login a[href="cadastre-se"]').addEventListener('click', (evento) => {
+document.querySelector('#tela-login a[href="#cadastre-se"]').addEventListener('click', (evento) => {
     evento.preventDefault()
     mudarTela('tela-criar-conta')
 })
 
-document.querySelector('#tela-criar-conta a[href="entrar"]').addEventListener('click', (evento) => {
+document.querySelector('#tela-criar-conta a[href="#entrar"]').addEventListener('click', (evento) => {
     evento.preventDefault()
     mudarTela('tela-login')
 })
