@@ -5,6 +5,13 @@
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
+div.tela {
+    display: none;
+}
+
+.tela.ativa {
+    display: block;
+}
 
 
 :root {
@@ -65,6 +72,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -87,17 +95,10 @@ a {
 
 .container {
     display: flex;
-    /* Ativa o modo flex. */
-    /* justify-content: space-between;         /* Empurra o primeiro item para o top e o último para a base */
     justify-content: flex-start;
-    /* Alinha tudo no topo, em ordem */
     gap: 17px;
     align-items: center;
-    /* Centraliza tudo hotrizontalmente */
     flex-direction: column;
-    /* Emplia os itens (logo e texto) */
-    padding: 0 0 100px 0;
-    /* Espaço interno: 135px no topo e 100px na base */
     background: var(--fundo-secundario);
     max-width: 414px;
     min-height: 896px;
@@ -198,7 +199,7 @@ label {
     color: var(--roxo-claro);
 }
 
-#cadastre-se {
+#cadastreSe {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -259,6 +260,10 @@ label {
     margin-top: 30px;
     box-shadow: var(--sombra-media);
     opacity: 60%;
+}
+
+.nome-servicos {
+    margin-bottom: 120px;
 }
 
 nav h2 {
@@ -348,6 +353,10 @@ footer div .calendario {
     background: var(--servicos);
     padding: 0;
     border-radius: 20px;
+}
+
+.nome-cortes {
+    margin-bottom: 80px;
 }
 
 .agendar {
@@ -441,7 +450,7 @@ footer div .calendario {
 
 button {
     background: transparent;
-    border: none;    
+    border: none;
     color: var(--texto-secundario);
 }
 
