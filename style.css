@@ -5,14 +5,14 @@
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
-/* div.tela {
+div.tela {
     display: none;
 }
 
 .tela.ativa {
     display: block;
 }
- */
+
 /* VARIÁVEIS */
 :root {
     /* CORES PRINCIPAIS */
@@ -181,6 +181,34 @@ a {
     margin: 5px 0 30px 0;
 }
 
+.btn-mostrar-senha:hover {
+    transition: none;
+    background: none;
+}
+
+.btn-mostrar-senha {
+    position: absolute;
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    right: 38px;
+    bottom: 4px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-mostrar-senha img {
+    position: static;
+    width: 20px;
+    height: 20px;
+    outline: none;
+}
+
 input {
     border: none;
     outline: none;
@@ -196,6 +224,10 @@ input {
 input:focus {
     box-shadow: 1px 1px 10px 1px var(--borda-roxo);
     background: var(--fundo-secundario);
+}
+
+input:focus::placeholder {
+    color: transparent;
 }
 
 input::placeholder {
@@ -241,6 +273,12 @@ button:hover {
 
 button:active {
     transform: scale(0.80);
+}
+
+.erro {
+    text-align: center;
+    color: var(--texto-desativado);
+    margin-top: 10px;
 }
 
 #cadastreSe {

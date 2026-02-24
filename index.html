@@ -33,12 +33,15 @@
                                     <img src="icones/password.svg" alt="Senha-login" class="icone">
                                     <input type="password" name="password-login" id="password-login"
                                         placeholder="**********" required>
+                                    <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-login">
+                                        <img id="icone-olho-login" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                    </button>
                                 </div>
                                 <div id="cadastreSe">
                                     <p>Não tem conta? <a href="#cadastre-se">Cadastre-se</a></p>
                                     <a href="#esqueci-a-senha">Esqueci a senha</a>
                                 </div>
-                                <div id="erro-login">
+                                <div id="erro-login" class="erro">
 
                                 </div>
                                 <div class="botao-login">
@@ -51,7 +54,7 @@
             </div>
         </div>
 
-        <!-- TELA 2: CADASTRO  -->
+        <!-- TELA 2:FAÇA SEU CADASTRO  -->
 
         <div id="tela-criar-conta" class="tela">
             <div class="container">
@@ -78,26 +81,32 @@
                                     <img src="icones/password.svg" alt="password-criar" class="icone">
                                     <input type="password" name="password-criar" id="password-criar"
                                         placeholder="**********" required>
+                                        <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-cadastro">
+                                        <img id="icone-olho-criar" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                    </button>
                                 </div>
                                 <label for="password-confirmar" class="label">Confirmar Senha</label>
                                 <div class="logar">
                                     <img src="icones/password.svg" alt="password-criar" class="icone">
                                     <input type="password" name="password-confirmar" id="password-confirmar"
                                         placeholder="**********" required>
+                                        <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-confirmar">
+                                        <img id="icone-olho-confirmar" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                    </button>
                                 </div>
                                 <label for="whatsapp" class="label">WhatsApp</label>
                                 <div class="logar">
                                     <img src="icones/whatsapp.svg" alt="whatsapp" class="icone">
-                                    <input type="tel" name="whatsapp" id="whatsapp" placeholder="61 9 99999999">
+                                    <input type="tel" name="whatsapp" id="whatsapp" placeholder="61999999999">
                                 </div>
                                 <div id="logarSe">
                                     <p>Já tem conta? <a href="#login">Entrar</a></p>
                                 </div>
-                                <div id="erro-cadastro">
+                                <div id="erro-cadastro" class="erro">
 
                                 </div>
                                 <div class="botao-login">
-                                    <button type="submit">Cadastrar</button>
+                                    <button id="btn-cadastrar" type="submit">Cadastrar</button>
                                 </div>
                             </div>
                         </form>
