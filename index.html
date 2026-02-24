@@ -1,51 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Barbershop</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <main class="home-main">
+    <main>
         <!-- TELA 1: LOGIN -->
         <div id="tela-login" class="tela ativa">
-            <div class="container home">
+            <div class="container">
                 <img class="logo" src="icones/logo.inicial.jpeg" alt="logo">
-                <div class="nome-barbearia">
-                    <h1 class="barbearia">Babearia Natan</h1>
-                </div>
+                <h1 class="titulo-principal">Barbearia Morais</h1>
                 <section>
-                    <div class="faca-login">
-                        <h2 class="login">Faça seu Login</h2>
+                    <div class="div-section">
+                        <h2 class="titulo-secundario">Faça seu Login</h2>
                         <form>
                             <div class="form-login">
-                                <div class="label">
-                                    <label for="email">Email</label>
+                                <label for="email-login" class="label">Email </label>
+                                <div class="logar">
+                                    <img src="icones/email.svg" alt="email" class="icone">
+                                    <input type="email" name="email-login" id="email-login"
+                                        placeholder="exemplo@exemplo.com" required>
                                 </div>
-                                <div class="caixa">
-                                    <img class="icone" src="icones/Vector1.png" alt="email"><input type="email"
-                                        name="email" id="email-login" placeholder="exemplo@exemplo.com" required>
-                                </div>
-                                <div class="label">
-                                    <label for="password">Senha</label>
-                                </div>
-                                <div class="caixa">
-                                    <img class="icone" src="icones/lock.png" alt="cadeado"><input type="password"
-                                        name="password" id="password-login" placeholder="********" required>
+                                <label for="password-login" class="label">Senha </label>
+                                <div class="logar">
+                                    <img src="icones/password.svg" alt="Senha-login" class="icone">
+                                    <input type="password" name="password-login" id="password-login"
+                                        placeholder="**********" required>
                                 </div>
                                 <div id="cadastreSe">
                                     <p>Não tem conta? <a href="#cadastre-se">Cadastre-se</a></p>
                                     <a href="#esqueci-a-senha">Esqueci a senha</a>
                                 </div>
-                                <div id="retorno">
+                                <div id="erro-login">
 
                                 </div>
                                 <div class="botao-login">
-                                    <input class="login" type="button" value="login" id="login">
+                                    <button id="btn-login" type="submit">Login</button>
                                 </div>
                             </div>
                         </form>
@@ -53,44 +50,54 @@
                 </section>
             </div>
         </div>
-        <!-- TELA 2: CRIAR CONTA -->
+
+        <!-- TELA 2: CADASTRO  -->
+
         <div id="tela-criar-conta" class="tela">
             <div class="container">
-                <img class="logo" src="icones/logo.inicial.jpeg" alt="logo">
-                <div class="nome-barbearia">
-                    <h1 class="barbearia">Babearia Natan</h1>
-                </div>
+                <img src="icones/logo.inicial.jpeg" alt="logo" class="logo">
                 <section>
-                    <h2 class="login">Faça seu cadastro</h2>
-                    <div class="faca-login">
+                    <div class="div-section">
+                        <h2 class="titulo-secundario"> Faça seu Cadastro</h2>
                         <form>
                             <div class="form-login">
-                                <div class="label">
-                                    <label for="email">Nome</label>
+                                <label for="nome-criar" class="label cadastrar">Nome</label>
+                                <div class="logar">
+                                    <img src="icones/user.svg" alt="criar-nome" class="icone">
+                                    <input type="text" name="nome-criar" id="nome-criar" placeholder="Jheison Morais"
+                                        required>
                                 </div>
-                                <div class="caixa">
-                                    <img class="icone" src="icones/person.1.png" alt="email"><input type="text"
-                                        name="nome" id="nome" placeholder="Natan Morais" required>
+                                <label for="email-cadastro" class="label">Email</label>
+                                <div class="logar">
+                                    <img src="icones/email.svg" alt="email-cadastro" class="icone">
+                                    <input type="email" name="email-cadastro" id="email-cadastro"
+                                        placeholder="exemplo@exemplo.com" required>
                                 </div>
-                                <div class="label">
-                                    <label for="email">Email</label>
+                                <label for="password-criar" class="label">Senha</label>
+                                <div class="logar">
+                                    <img src="icones/password.svg" alt="password-criar" class="icone">
+                                    <input type="password" name="password-criar" id="password-criar"
+                                        placeholder="**********" required>
                                 </div>
-                                <div class="caixa">
-                                    <img class="icone" src="icones/Vector1.png" alt="email"><input type="email"
-                                        name="email" id="email" placeholder="exemplo@exemplo.com" required>
+                                <label for="password-confirmar" class="label">Confirmar Senha</label>
+                                <div class="logar">
+                                    <img src="icones/password.svg" alt="password-criar" class="icone">
+                                    <input type="password" name="password-confirmar" id="password-confirmar"
+                                        placeholder="**********" required>
                                 </div>
-                                <div class="label">
-                                    <label for="password">Senha</label>
+                                <label for="whatsapp" class="label">WhatsApp</label>
+                                <div class="logar">
+                                    <img src="icones/whatsapp.svg" alt="whatsapp" class="icone">
+                                    <input type="tel" name="whatsapp" id="whatsapp" placeholder="61 9 99999999">
                                 </div>
-                                <div class="caixa">
-                                    <img class="icone" src="icones/lock.png" alt="cadeado"><input type="password"
-                                        name="password" id="password" placeholder="********" required>
+                                <div id="logarSe">
+                                    <p>Já tem conta? <a href="#login">Entrar</a></p>
                                 </div>
-                                <div class="cadastre-se entrar">
-                                    <p>Já tem conta? <a href="#entrar">Entrar</a></p>
+                                <div id="erro-cadastro">
+
                                 </div>
                                 <div class="botao-login">
-                                    <input class="login" type="button" value="Sign In">
+                                    <button type="submit">Cadastrar</button>
                                 </div>
                             </div>
                         </form>
@@ -98,132 +105,92 @@
                 </section>
             </div>
         </div>
-        <!-- TELA 3: HOME -->
-        <div id="tela-home" class="tela">
-            <div class="container home">
-                <div class="pagina-inicial">
-                    <h1>Home</h1>
-                </div>
-                <img class="foto-barbearia" src="icones/pexels-marceloverfe-18702143.jpg" alt="barbearia">
-                <nav class="nome-servicos" >
-                    <h2>Serviços</h2>
-                    <div class="servicos">
-                        <div class="cortes">
-                            <a href="#corte-tradicional">Corte Tradicional</a>
-                        </div>
-                        <div class="cortes">
-                            <a href="#limpeza-de-rosto">Limpeza de Rosto</a>
-                        </div>
-                        <div class="cortes">
-                            <a href="#sobrancelha">Sobrancelha</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <footer>
-                <div class="menu-footer">
-                    <div class="pagina-inicial menu">
-                        <a href="#pagina-inicial"><img src="icones/home.1.png" alt="voltar-pagina-inicial"></a>
-                    </div>
-                    <div class="calendario menu">
-                        <a href="#calendario"><img src="icones/today.1.png" alt="calendario"></a>
-                    </div>
-                    <div class="perfil menu">
-                        <a href="#perfil"><img src="icones/account.1.png" alt="perfil"></a>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- TELA 4: HOME SERVIÇOS (vem aqui) -->
-        <div id="tela-home-servicos" class="tela container">
-            <div class="pagina-inicial">
-                <h1>Home</h1>
-            </div>
-            <img class="foto-barbearia" src="icones/pexels-cottonbro-3998403.jpg" alt="barbearia">
-            <nav class="nome-cortes" >
-                <h2>Serviços</h2>
-                <div class="servicos home-servicos">
-                    <div class="agendar">
-                        <p>Corte Masculino <a class="botao-agendar" href="#agendar-corte-masculino">Agendar</a></p>
-                    </div>
-                    <div class="agendar">
-                        <p>Limpexa de Rosto <a class="botao-agendar" href="#agendar-limpeza-de-rosto">Agendar</a>
-                        </p>
-                    </div>
-                    <div class="agendar">
-                        <p>Sobrancelha <a class="botao-agendar" href="#agendar-sobrancelha">Agendar</a></p>
-                    </div>
-                    <div class="agendar">
-                        <p>Barba <a class="botao-agendar" href="#agendar-barba">Agendar</a></p>
-                    </div>
-                </div>
-            </nav>
-            <footer>
-                <div class="menu-footer">
-                    <div class="pagina-inicial menu">
-                        <a href="#pagina-inicial"><img src="icones/home.1.png" alt="voltar-pagina-inicial"></a>
-                    </div>
-                    <div class="calendario menu">
-                        <a href="#calendario"><img src="icones/today.1.png" alt="calendario"></a>
-                    </div>
-                    <div class="perfil menu">
-                        <a href="#perfil"><img src="icones/account.1.png" alt="perfil"></a>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- TELA 5: AGENDAMENTO (vem aqui) -->
-        <div id="tela-agendamento" class="tela">
-            <div class="container home">
-                <div class="pagina-inicial">
-                    <h1>Agendamento</h1>
-                </div>
-                <div class="caixa-calendario">
-                    <div id="calendario">
-                        <div id="mes-ano">
-                            <button id="anterior">Anterior</button>
-                            <span id="mes">Março</span>
-                            <button id="proximo">Próximo</button>
-                        </div>
-                        <div class="dias-da-semana">
-                            <div class="dia">D</div>
-                            <div class="dia">S</div>
-                            <div class="dia">T</div>
-                            <div class="dia">Q</div>
-                            <div class="dia">Q</div>
-                            <div class="dia">S</div>
-                            <div class="dia">S</div>
-                        </div>
-                        <div id="meses"></div>
-                    </div>
-                    <div id="horas">
-                        <button id="hora-antes">Anterior</button>
 
-                        <div class="horas">09:00</div>
-                        <div class="horas">10:00</div>
-                        <div class="horas">11:00</div>
-                        <div class="horas">13:00</div>
-                        <button id="hora-depois">Próximas</button>
-                    </div>
-                    <div id="container-cortes">
-                        <div id="adicionar-corte">
-                            <button id="btn-adicionar-corte">Adicionar Serviço</button>
-                        </div>
+        <!-- TELA 3: RECUPERAÇÃO DE SENHA -->
 
-                        <div id="lista-servicos">
-                            <!-- JavaScript vai preencher aqui com as apoçoes de servições -->
+        <div id="tela-recuperar-senha" class="tela">
+            <div class="container">
+                <h2 class="titulo-secundario">Recuperar Senha</h2>
+                <form>
+                    <div class="form-login">
+                        <label for="whatsapp-recuperar" class="label">WhatsApp Cadastrado</label>
+                        <div class="logar">
+                            <img src="icones/whatsapp.svg" alt="whatsapp-recuperar" class="icone">
+                            <input type="tel" name="whatsapp-recuperar" id="whatsapp-recuperar"
+                                placeholder="61 9 99999999" required>
                         </div>
-                        <div class="cortes-escolhidos">
-                            <span>Corte Masculino</span>
-                            <button class="remover-servico">-</button>
+                        <label for="codigo" class="label">Digite o código enviado</label>
+                        <div class="logar">
+                            <img src="icones/chave.svg" alt="token" class="icone">
+                            <input type="text" name="codigo" id="codigo" placeholder="000000" maxlength="6"
+                                pattern="\d{6}" inputmode="numeric">
+                        </div>
+                        <div id="links-auxiliares">
+                            <p>Não recebeu? <a href="#reenviar">Reenviar código</a></p>
+                        </div>
+                        <div class="botao-login">
+                            <button type="submit">Verificar Código</button>
                         </div>
                     </div>
-                    <div class="botao-login">
-                        <input type="button" value="Finalizar Agendamento">
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+
+        <!-- TELA 4: CRIAR NOVA SENHA -->
+
+        <div id="tela-criar-nova-senha" class="tela">
+            <div class="container">
+                <section>
+                    <div class="div-section">
+                        <h2 class="titulo-secundario">Crie uma nova Senha</h2>
+                        <form class="form-login">
+                            <label for="nova-senha" class="label">Nova senha</label>
+                            <div class="logar">
+                                <img src="icones/password.svg" alt="nova-senha" class="icone">
+                                <input type="password" name="nova-senha" id="nova-senha" placeholder="**********"
+                                    required>
+                            </div>
+                            <label for="confirmar-nova-senha" class="label">Confirmar nova senha</label>
+                            <div class="logar">
+                                <img src="icones/password.svg" alt="nova-senha" class="icone">
+                                <input type="password" name="confirmar-nova-senha" id="confirmar-nova-senha"
+                                    placeholder="**********" required>
+                            </div>
+                            <div class="botao-login">
+                                <button type="submit">Redefinir Senha</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- FECHAMENTO DO CONTAINER -->
+
+            </div>
+        </div>
+
+
+
+
+
+
     </main>
     <script src="script.js"></script>
 </body>

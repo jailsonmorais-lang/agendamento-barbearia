@@ -32,7 +32,7 @@ function validarEntrada(seletor) {
 validarEntrada('input#email-login')
 validarEntrada('input#password-login')
 
-document.querySelector('input#login').addEventListener('click', () => {
+document.querySelector('button#btn-login').addEventListener('click', () => {
     validarLogin()
 })
 

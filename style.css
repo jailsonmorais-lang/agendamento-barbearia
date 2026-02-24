@@ -5,66 +5,48 @@
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
-div.tela {
+/* div.tela {
     display: none;
 }
 
 .tela.ativa {
     display: block;
 }
-
-
+ */
+/* VARIÁVEIS */
 :root {
     /* CORES PRINCIPAIS */
-    --roxo-principal: #7C3AED;
-    /* Roxo vibrante - use em botões e destaque */
-    --roxo-escuro: #6D28D9;
-    /* Roxo mais escuro - use em hover e foco */
-    --roxo-claro: #A78BFA;
-    /* Roxo claro - use para hover suave */
+    --roxo-principal: #7C3AED;          /* Roxo vibrante - use em botões e destaque */
+    --roxo-escuro: #6D28D9;             /* Roxo mais escuro - use em hover e foco */
+    --roxo-claro: #A78BFA;              /* Roxo claro - use para hover suave */
 
     /* FUNDOS */
-    --fundo-principal: #0F0F0F;
-    /* Preto quase puro - fundo geral */
-    --fundo-secundario: #1A1A1A;
-    /* Cinza muito escuro - containers, cards */
-    --fundo-terciario: #2D2D2D;
-    /* Cinza escuro - inputs, elementos interativos */
+    --fundo-principal: #0F0F0F;         /* Preto quase puro - fundo geral */
+    --fundo-secundario: #1A1A1A;        /* Cinza muito escuro - containers, cards */
+    --fundo-terciario: #2D2D2D;         /* Cinza escuro - inputs, elementos interativos */
 
     /* TEXTOS */
-    --texto-principal: #FFFFFF;
-    /* Branco - títulos e textos principais */
-    --texto-secundario: #D1D5DB;
-    /* Cinza claro - textos secundários */
-    --texto-desativado: #9CA3AF;
-    /* Cinza médio - textos desativados */
+    --texto-principal: #FFFFFF;         /* Branco - títulos e textos principais */
+    --texto-secundario: #D1D5DB;        /* Cinza claro - textos secundários */
+    --texto-desativado: #9CA3AF;        /* Cinza médio - textos desativados */
 
     /* BORDAS */
-    --borda-clara: #404040;
-    /* Cinza médio - bordas normais */
-    --borda-roxo: #7C3AED;
-    /* Roxo - bordas com foco */
-    --borda-erro: #EF4444;
-    /* Vermelho - bordas de erro */
-    --borda-sucesso: #10B981;
-    /* Verde - bordas de sucesso */
+    --borda-clara: #404040;             /* Cinza médio - bordas normais */
+    --borda-roxo: #7C3AED;              /* Roxo - bordas com foco */
+    --borda-erro: #EF4444;              /* Vermelho - bordas de erro */
+    --borda-sucesso: #10B981;           /* Verde - bordas de sucesso */
 
     /* ESTADOS */
-    --erro: #EF4444;
-    /* Vermelho para erros */
-    --sucesso: #10B981;
-    /* Verde para sucesso */
-    --aviso: #F59E0B;
-    /* Amarelo para avisos */
-    --info: #3B82F6;
-    /* Azul para informações */
+    --erro: #EF4444;                    /* Vermelho para erros */
+    --sucesso: #10B981;                 /* Verde para sucesso */
+    --aviso: #F59E0B;                   /* Amarelo para avisos */
+    --info: #3B82F6;                    /* Azul para informações */
 
     /* SOMBRAS */
-    --sombra-suave: 0 4px 6px rgba(124, 58, 237, 0.1);
+    --sombra-suave: 1px 1px 10px 1px rgba(124, 58, 237, 0.1);
     --sombra-media: 0 10px 15px rgba(124, 58, 237, 0.2);
     --sombra-forte: 0 20px 25px rgba(124, 58, 237, 0.3);
 }
-
 
 /* ESTILOS GERAIS */
 
@@ -72,7 +54,6 @@ div.tela {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -80,454 +61,219 @@ div.tela {
 
 body {
     animation: fadeIn 0.3s ease-in;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    color: var(--texto-principal);
+    padding: 20px;
     background: var(--fundo-principal);
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: var(--fundo-secundario);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 40px;
+}
+
+/* RESPONSIVO MOBILE */
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 30px 15px;
+        border-radius: 12px;
+    }
+}
+
+/* RESPONSIVO TABLET */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: 50px 30px;
+    }
+}
+
+/* ESTILIZAÇÃO DE TITULOS */
+
+.titulo-principal {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--texto-principal);
+    text-shadow: 0px 4px 8px var(--roxo-principal);
+}
+
+.titulo-secundario{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--texto-secundario);
+    text-shadow: 0px 2px 6px var(--roxo-principal);
+}
+
+P {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--texto-secundario);
 }
 
 a {
     text-decoration: none;
-    color: var(--txt);
+    color: var(--roxo-claro);
+
 }
 
-.container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 17px;
-    align-items: center;
-    flex-direction: column;
-    background: var(--fundo-secundario);
-    max-width: 414px;
-    min-height: 896px;
-    margin: 0;
-    box-shadow: 1px 1px 30px 8px var(--borda-clara);
-}
-
-/* TELA INICIAL (Login - Criar Conta) */
+/* TELA 1 LOGIN */
 .logo {
-    margin-top: 0;
     width: 100%;
-    height: 350px;
+    height: 300px;
     object-fit: cover;
-    box-shadow: var(--sombra-forte);
     opacity: 60%;
+    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
 }
 
-.nome-barbearia {
-    width: 244px;
-    height: 41px;
-    text-align: center;
-    margin-top: 17px;
-    margin-bottom: 40px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: none;
-}
-
-.barbearia {
-    text-shadow: 0px 4px 4px var(--roxo-principal);
-    color: rgba(255, 255, 255, 1);
-
-}
-
-/* TELA LOGIN */
-
-div h2.login {
-    text-align: center;
-    margin-bottom: 25px;
-    text-shadow: 0 0 30px rgba(124, 58, 237, 1);
-    color: rgba(255, 255, 255, 1);
-    font-size: 2rem;
+.div-section {
+    border: 1px solid var(--fundo-terciario);
+    border-radius: 10px;
+    box-shadow: var(--sombra-media);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 20px 20px;
 }
 
 .form-login {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 1px;
+    width: 350px;
+    border-radius: 10px;
+    padding: 30px 10px;
+    background: var(--fundo-terciario);
+    border: 1px solid var(--fundo-principal);
 }
 
-.caixa {
-    position: relative;
-    /* Isso permite que o ícone 'flutue' lá dentro */
+
+.label {
+    color: var(--texto-secundario);
+    margin: 0 0 5px 35px;
+    text-shadow: 0px 2px 6px var(--roxo-principal);
+}
+
+.logar {
+/* CLASSE QUE ENVOLVE TANTO O ICONE QUANTO O INPUT */
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    margin: 10px auto;
+    margin: 5px 0 30px 0;
 }
 
-.icone {
-    position: absolute;
-    /* O icone sai do fluxo e flutua */
-    left: 25px;
-    /* Distancia da borda esqueda */
-    width: 18px;
-    /* Tamanho do icone */
-    height: 18px;
-    /* opacity: 0.6; */
-    /* Deixa ele mais discreto */
-    object-fit: cover;
-    border-radius: 3px;
-}
-
-.caixa input {
-    width: 100%;
-    height: 35px;
-    border-radius: 20px;
+input {
     border: none;
     outline: none;
+    border-radius: 10px;
     text-align: center;
-    background: var(--fundo-terciario);
-    color: var(--texto-principal);
-    box-shadow: var(--sombra-media);
+    width: 80%;
+    height: 30px;
+    background: var(--fundo-secundario);
+    border: 1px solid var(--roxo-claro);
+    color: var(--texto-secundario);
 }
 
-
+input:focus {
+    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
+    background: var(--fundo-secundario);
+}
 
 input::placeholder {
+    text-align: center;
     color: var(--texto-desativado);
 }
 
-label {
-    font-size: 1.2rem;
-    padding-left: 20px;
-    text-shadow: var(--sombra-forte);
-    color: var(--roxo-claro);
-}
-
-#cadastreSe {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-#retorno {
-    margin-top: 20px;
-    width: 300px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.icone {
+/* CLASSE DE CADA ICONE */
+    position: absolute;
+    left: 42px;
+    width: 20px;
+    height: 20px;
 }
 
 .botao-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.botao-login input {
-    width: 300px;
-    height: 45px;
-    border-radius: 20px;
-    color: var(--txt);
-    font-size: 1.5rem;
-    border: none;
-    background: var(--fundo-terciario);
-    transition: all 1s ease;
-    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
-}
-
-.botao-login input:hover {
-    background: var(--roxo-principal);
-    color: var(--fundo-secundario);
-    transition: all 1s ease;
-}
-
-/* HOME */
-
-.pagina-inicial h1 {
-    width: 379px;
-    margin: 30px 0 0 30px;
-    text-shadow: 0px 4px 4px var(--roxo-principal);
-    color: rgba(255, 255, 255, 1);
-}
-
-.foto-barbearia {
-    display: flex;
-    margin: auto;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 30px;
-    margin-top: 30px;
-    box-shadow: var(--sombra-media);
-    opacity: 60%;
-}
-
-.nome-servicos {
-    margin-bottom: 120px;
-}
-
-nav h2 {
     text-align: center;
-    width: 137px;
-    height: 41px;
-    font-size: 2rem;
-    text-shadow: 0px 4px 4px var(--roxo-principal);
-    color: rgba(255, 255, 255, 1);
-    margin: 50px 0 30px 0;
-}
-
-.servicos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 329px;
-    height: 177px;
-    gap: 30px;
-}
-
-.cortes:hover {
-    background: var(--roxo-principal);
-    color: var(--fundo-secundario);
-    transition: all 1s ease;
-}
-
-.cortes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    height: 49px;
-    width: 329px;
-    font-size: 1.3rem;
-    background: var(--fundo-terciario);
-    transition: all 1s ease;
-    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
-}
-
-.menu-footer {
-    width: 414px;
-    height: 50px;
-    background: var(--fundo-principal);
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    z-index: 1;
-}
-
-.menu {
-    margin-top: 5px;
-    object-fit: cover;
-}
-
-footer div .calendario:hover {
-    background: var(--roxo-escuro);
-    transition: all 1s ease;
-}
-
-footer div .calendario {
-    background: var(--txt);
-    width: 55px;
-    height: 55px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--roxo-claro);
-    transition: all 1s ease;
-}
-
-.calendario {
-    position: relative;
-    top: -30px;
-}
-
-/* HOME-SERVIÇOS - ESCOLHA DO SERVIÇO */
-
-.home-servicos {
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    width: 414px;
-    height: auto;
-    background: var(--servicos);
-    padding: 0;
-    border-radius: 20px;
-}
-
-.nome-cortes {
-    margin-bottom: 80px;
-}
-
-.agendar {
-    font-size: 1.3rem;
-    width: 90%;
-    height: 25px;
-}
-
-.agendar p {
-    display: flex;
-    justify-content: space-between;
-}
-
-.botao-agendar:hover {
-    background: var(--roxo-principal);
-    color: var(--fundo-terciario);
-    transition: all 1s ease;
-}
-
-.botao-agendar {
-    background: var(--fundo-terciario);
-    width: 100px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    transition: all 1s ease;
-}
-
-/* AGENDAMENTO */
-
-.caixa-calendario {
-    background: var(--fundo-se);
-    height: 795px;
-    width: 414px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px 20px 0 0;
+    width: 100%;
+    margin: 0 auto;
     margin-top: 50px;
 }
 
-#calendario:hover {
-    box-shadow: 0 0 5px 1px var(--roxo-escuro);
-    transition: all 1s ease;
-}
-
-#calendario {
-    background: var(--fundo-terciario);
-    width: 332px;
-    height: 256px;
-    margin-top: 10px;
-    border-radius: 15px;
-    display: grid;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 0 5px 1px var(--roxo-claro);
-    transition: all 1s ease;
-}
-
-#mes-ano {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 38px;
-    text-align: center;
-    margin-top: 9px;
-    gap: 10px;
-}
-
-.dias-da-semana {
-    text-align: center;
-    width: 100%;
-    height: 25px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    position: absolute;
-    top: 45px;
-    align-items: center;
-    color: var(--texto-secundario);
-    box-shadow: 0 0 10px 1px var(--fundo-principal);
-    text-shadow: 0 1px 5px var(--fundo-principal);
-    transition: all 1s ease;
-}
-
-.dias-da-semana:hover {
-    box-shadow: 0 0 10px 1px var(--roxo-claro);
-    transition: all 3s ease;
-}
-
 button {
-    background: transparent;
-    border: none;
-    color: var(--texto-secundario);
-}
-
-#horas {
-    margin-top: 35px;
-    background: var(--servicos);
-    height: 62px;
-    width: 332px;
-    display: flex;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    border: 1px groove var(--fundo-terciario);
-    gap: 5px;
-}
-
-.horas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--fundo-principal);
+    color: var(--texto-principal);
+    box-shadow: 1px 1px 10px 1px var(--borda-roxo);
+    font-size: 1.5rem;
     text-align: center;
-    width: 47px;
-    height: 25px;
-    border-radius: 10px;
-    transition: all 1s ease;
-    border: 1px groove var(--fundo-terciario);
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.horas:hover {
-    background: var(--roxo-escuro);
-    color: var(--fundo-terciario);
-    transition: all 1s ease;
+button:hover {
+    color: black;
+    transition: all 0.3s ease-out;
+    background-color: var(--borda-roxo);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 2px 6px var(--fundo-principal);
 }
 
-#container-cortes {
-    margin-top: 20px;
+button:active {
+    transform: scale(0.80);
+}
+
+#cadastreSe {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    transition: all 1s ease;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    font-size: 0.80rem;
+    margin: 5px 20px 0 0;
+}
+#cadastreSe p{
+    margin-bottom: 10px;
+    font-size: 0.80rem;
 }
 
-#adicionar-corte:hover {
-    box-shadow: 0 0 5px 1px var(--roxo-claro);
-    border-radius: 10px;
-    transition: all 1s ease;
-
-}
-
-#adicionar-corte {
+#logarSe{
     display: flex;
-    justify-content: center;
-    width: 332px;
-    height: 52px;
-    margin-bottom: 30px;
-    border: 1px groove var(--fundo-terciario);
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px 20px 0 0;
 }
 
-#lista-servicos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 332px;
-    height: 52px;
-    border: 1px groove var(--fundo-terciario);
-    margin-bottom: 30px;
+#logarSe p {
+    font-size: 0.80rem;
 }
 
-.cortes-escolhidos {
+#links-auxiliares {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px 0 15px;
-    width: 100%;
-    height: 50px;
-    margin-top: 30px;
-    border: 1px groove var(--fundo-terciario);
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 10px 20px 0 0;
+}
 
+#links-auxiliares p {
+    font-size: 0.90rem;
 }
