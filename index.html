@@ -34,7 +34,8 @@
                                     <input type="password" name="password-login" id="password-login"
                                         placeholder="**********" required>
                                     <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-login">
-                                        <img id="icone-olho-login" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                        <img id="icone-olho-login" src="icones/olho-fechado.svg" alt="mostrar senha"
+                                            class="icone">
                                     </button>
                                 </div>
                                 <div id="cadastreSe">
@@ -81,8 +82,9 @@
                                     <img src="icones/password.svg" alt="password-criar" class="icone">
                                     <input type="password" name="password-criar" id="password-criar"
                                         placeholder="**********" required>
-                                        <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-cadastro">
-                                        <img id="icone-olho-criar" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                    <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-cadastro">
+                                        <img id="icone-olho-criar" src="icones/olho-fechado.svg" alt="mostrar senha"
+                                            class="icone">
                                     </button>
                                 </div>
                                 <label for="password-confirmar" class="label">Confirmar Senha</label>
@@ -90,8 +92,9 @@
                                     <img src="icones/password.svg" alt="password-criar" class="icone">
                                     <input type="password" name="password-confirmar" id="password-confirmar"
                                         placeholder="**********" required>
-                                        <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-confirmar">
-                                        <img id="icone-olho-confirmar" src="icones/olho-fechado.svg" alt="mostrar senha" class="icone">
+                                    <button type="button" class="btn-mostrar-senha" id="btn-mostrar-senha-confirmar">
+                                        <img id="icone-olho-confirmar" src="icones/olho-fechado.svg" alt="mostrar senha"
+                                            class="icone">
                                     </button>
                                 </div>
                                 <label for="whatsapp" class="label">WhatsApp</label>
@@ -119,29 +122,37 @@
 
         <div id="tela-recuperar-senha" class="tela">
             <div class="container">
-                <h2 class="titulo-secundario">Recuperar Senha</h2>
-                <form>
-                    <div class="form-login">
-                        <label for="whatsapp-recuperar" class="label">WhatsApp Cadastrado</label>
-                        <div class="logar">
-                            <img src="icones/whatsapp.svg" alt="whatsapp-recuperar" class="icone">
-                            <input type="tel" name="whatsapp-recuperar" id="whatsapp-recuperar"
-                                placeholder="61 9 99999999" required>
-                        </div>
-                        <label for="codigo" class="label">Digite o código enviado</label>
-                        <div class="logar">
-                            <img src="icones/chave.svg" alt="token" class="icone">
-                            <input type="text" name="codigo" id="codigo" placeholder="000000" maxlength="6"
-                                pattern="\d{6}" inputmode="numeric">
-                        </div>
-                        <div id="links-auxiliares">
-                            <p>Não recebeu? <a href="#reenviar">Reenviar código</a></p>
-                        </div>
-                        <div class="botao-login">
-                            <button type="submit">Verificar Código</button>
-                        </div>
+                <section>
+                    <div class="div-section">
+
+                        <h2 class="titulo-secundario">Recuperar Senha</h2>
+                        <form>
+                            <div class="form-login">
+                                <label for="whatsapp-recuperar" class="label">WhatsApp Cadastrado</label>
+                                <div class="logar">
+                                    <img src="icones/whatsapp.svg" alt="whatsapp-recuperar" class="icone">
+                                    <input type="tel" name="whatsapp-recuperar" id="whatsapp-recuperar"
+                                        placeholder="61999999999" required>
+                                </div>
+                                <label for="codigo" class="label">Digite o código enviado</label>
+                                <div class="logar">
+                                    <img src="icones/chave.svg" alt="token" class="icone">
+                                    <input type="number" name="codigo" id="codigo" placeholder="000000"
+                                        inputmode="numeric">
+                                </div>
+                                <div id="links-auxiliares">
+                                    <a href="#enviarcodigo">Enviar código</a>
+                                </div>
+                                <div id="erro-recupera-senha" class="erro">
+
+                                </div>
+                                <div class="botao-login">
+                                    <button id="btn-verificar-codigo" type="submit">Verificar Código</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </section>
             </div>
         </div>
 
@@ -158,47 +169,65 @@
                                 <img src="icones/password.svg" alt="nova-senha" class="icone">
                                 <input type="password" name="nova-senha" id="nova-senha" placeholder="**********"
                                     required>
+                                <button type="button" class="btn-mostrar-senha" id="btn-mostrar-nova-senha">
+                                    <img id="icone-olho-nova-senha" src="icones/olho-fechado.svg" alt="mostrar senha"
+                                        class="icone">
+                                </button>
                             </div>
                             <label for="confirmar-nova-senha" class="label">Confirmar nova senha</label>
                             <div class="logar">
                                 <img src="icones/password.svg" alt="nova-senha" class="icone">
                                 <input type="password" name="confirmar-nova-senha" id="confirmar-nova-senha"
                                     placeholder="**********" required>
+                                <button type="button" class="btn-mostrar-senha" id="btn-mostrar-nova-senha-confirmar">
+                                    <img id="icone-olho-confirmar-nova-senha" src="icones/olho-fechado.svg"
+                                        alt="mostrar senha" class="icone">
+                                </button>
+                            </div>
+                            <div id="erro-criar-nova-senha" class="erro">
+
                             </div>
                             <div class="botao-login">
-                                <button type="submit">Redefinir Senha</button>
+                                <button id="redefinir-senha" type="submit">Redefinir Senha</button>
                             </div>
                         </form>
                     </div>
                 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- FECHAMENTO DO CONTAINER -->
-
             </div>
         </div>
 
+        <!-- TELA 5: DASHBOARD - HOME -->
+
+        <div id="tela-dashboard" class="telaa">
+            <div id="dashboard" class="container">
+                <h3 class="titulo-secundario">Seja Bem-Vindo, Jheison</h3>
+                <section>
+                    <div id="dection-dashboard" class="div-section">
+                        <h2 class="titulo-dashboard">Estilo que faz <br><span class="destaque">a diferença</span></h2>
+                        <p>Tradição em cortes masculinos com a qualidade e sofisticação que você merece</p>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </section>
+            </div>
+        </div>
 
     </main>
     <script src="script.js"></script>

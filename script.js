@@ -1,4 +1,4 @@
-/* ====== VARIÁVEIS CONSTANTES ====== */
+/* ====== VARIÁVEIS GLOBAIS ====== */
 // Login
 const email = document.querySelector('input#email-login')                 /* Email de login */
 const senha = document.querySelector('input#password-login')              /* Senha de login */
@@ -13,6 +13,16 @@ const senhaCadastro = document.querySelector('input#password-criar')      /* Sen
 const senhaConfirmar = document.querySelector('input#password-confirmar') /* Confirmar a senha de cadastro */
 const whatsapp = document.querySelector('input#whatsapp')                 /* Whatsapp para cadastro */
 const erroCadastro = document.querySelector('div#erro-cadastro')          /* div para mostrar erro no momento do cadastro */
+
+// Gerar código para criar nova senha
+let codigoGerado = ''
+const erroRecuperaSenha = document.querySelector('div#erro-recupera-senha')
+let codigo = document.querySelector('input#codigo')
+let whatsRecupera = document.querySelector('input#whatsapp-recuperar')
+const whatsappsRegistrados = ['61998729994', '61998736837']
+let novaSenha = document.querySelector('input#nova-senha')
+let confirmarNovaSenha = document.querySelector('input#confirmar-nova-senha')
+let erroCriarNovaSenha = document.querySelector('div#erro-criar-nova-senha')
 
 /* BOTÃO PARA VIZUALIZAR SENHAS */
 
@@ -34,6 +44,8 @@ function configurarBotaoMostrarSenha(botaoSeletor, inputSeletor, imgSeletor) {
 configurarBotaoMostrarSenha('#btn-mostrar-senha-login', '#password-login', '#icone-olho-login')
 configurarBotaoMostrarSenha('#btn-mostrar-senha-cadastro', '#password-criar', '#icone-olho-criar')
 configurarBotaoMostrarSenha('#btn-mostrar-senha-confirmar', '#password-confirmar', '#icone-olho-confirmar')
+configurarBotaoMostrarSenha('#btn-mostrar-nova-senha', '#nova-senha', '#icone-olho-nova-senha')
+configurarBotaoMostrarSenha('#btn-mostrar-nova-senha-confirmar', '#confirmar-nova-senha', '#icone-olho-confirmar-nova-senha')
 
 /* ====== VALIDAÇÃO DE LOGIN ====== */
 // Responsáveis por validar dados do formulário de login
@@ -94,6 +106,19 @@ function limparCadastro() {
     whatsapp.value = ''
     erroCadastro.innerHTML = ''
     erroCadastro.style.textShadow = ''
+    erroCriarNovaSenha.innerHTML = ''
+    erroCriarNovaSenha.style.textShadow = ''
+    email.value = ''
+    senha.value = ''
+    retorno.innerHTML = ''
+    retorno.style.textShadow = ''
+    erroRecuperaSenha.innerHTML = ''
+    erroRecuperaSenha.style.textShadow = ''
+    codigo.value = ''
+    whatsRecupera.value = ''
+    novaSenha.value = ''
+    confirmarNovaSenha.value = ''
+    codigoGerado = ''
 }
 
 function validarCadastro() {
@@ -155,12 +180,85 @@ function mudarTela(idTela) {
     telaSelecionada.classList.add('ativa')
 }
 
-/* ====== EVENT LISTENERS - TELA CADASTRO ====== */
-// Escutam ações do usuário na tela de cadastro
-// Clique em "Entrar" volta para tela de login
-// (TODO: Adicionar validação e submit do formulário de cadastro)
-
 document.querySelector('#tela-criar-conta a[href="#login"]').addEventListener('click', (evento) => {
     evento.preventDefault()
     mudarTela('tela-login')
 })
+
+document.querySelector('#tela-login a[href="#esqueci-a-senha"]').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    limparCadastro()
+    mudarTela("tela-recuperar-senha")
+})
+
+document.querySelector('button#btn-verificar-codigo').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    recuperarSenha()
+})
+
+document.querySelector('#tela-recuperar-senha a[href="#enviarcodigo"]').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    enviarCodigo()
+
+})
+
+document.querySelector('button#redefinir-senha').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    criarNovaSenha()
+})
+
+/* ====== RECUPERAÇÃO DE SENHA ====== */
+
+function enviarCodigo() {
+    if (whatsRecupera.value.length < 11) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp invalido'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (!/^[0-9]{11}$/.test(whatsRecupera.value.replace(" ", ''))) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp invalido'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (!whatsappsRegistrados.includes(whatsRecupera.value)) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp não encontrado!'
+        erroRecuperaSenha.style.textShadow = erro
+    } else {
+        codigoGerado = String(Math.floor(Math.random() * 1000000)).padStart(6, '0')
+        console.log('Codigo gerado:', codigoGerado)
+        erroRecuperaSenha.innerHTML = 'Código enviado! Verifique seu WhatsApp'
+        erroRecuperaSenha.style.textShadow = ''
+    }
+}
+
+function recuperarSenha() {
+    if (whatsRecupera.value.length < 11) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp invalido'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (!/^[0-9]{11}$/.test(whatsRecupera.value.replace(" ", ''))) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp invalido'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (!whatsappsRegistrados.includes(whatsRecupera.value)) {
+        erroRecuperaSenha.innerHTML = 'Número de WhatsApp não encontrado!'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (codigo.value.length > 6 || codigo.value.length < 6) {
+        erroRecuperaSenha.innerHTML = 'Código deve conter 6 digitos'
+        erroRecuperaSenha.style.textShadow = erro
+    } else if (codigo.value !== codigoGerado) {
+        erroRecuperaSenha.innerHTML = 'Código INCORRETO'
+        erroRecuperaSenha.style.textShadow = erro
+    } else {
+        mudarTela('tela-criar-nova-senha')
+    }
+}
+
+function criarNovaSenha() {
+    if (novaSenha.value.length < 8) {
+        erroCriarNovaSenha.innerHTML = 'Senha deve conter no minimo 8 caracteres'
+        erroCriarNovaSenha.style.textShadow = erro
+    } else if (!/[A-Z]/.test(novaSenha.value)) {
+        erroCriarNovaSenha.innerHTML = 'Senha deve conter uma letra maiúscula'
+        erroCriarNovaSenha.style.textShadow = erro
+    } else if (confirmarNovaSenha.value !== novaSenha.value) {
+        erroCriarNovaSenha.innerHTML = 'As senhas não coincidem!'
+        erroCriarNovaSenha.style.textShadow = erro
+    } else {
+        mudarTela('tela-login')
+    }
+}
