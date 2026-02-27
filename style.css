@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove o highlight padrão do navegador mobile */
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
@@ -16,31 +18,48 @@
 /* VARIÁVEIS */
 :root {
     /* CORES PRINCIPAIS */
-    --roxo-principal: #7C3AED;          /* Roxo vibrante - use em botões e destaque */
-    --roxo-escuro: #6D28D9;             /* Roxo mais escuro - use em hover e foco */
-    --roxo-claro: #A78BFA;              /* Roxo claro - use para hover suave */
+    --roxo-principal: #7C3AED;
+    /* Roxo vibrante - use em botões e destaque */
+    --roxo-escuro: #6D28D9;
+    /* Roxo mais escuro - use em hover e foco */
+    --roxo-claro: #A78BFA;
+    /* Roxo claro - use para hover suave */
 
     /* FUNDOS */
-    --fundo-principal: #0F0F0F;         /* Preto quase puro - fundo geral */
-    --fundo-secundario: #1A1A1A;        /* Cinza muito escuro - containers, cards */
-    --fundo-terciario: #2d2d2d88;         /* Cinza escuro - inputs, elementos interativos */
+    --fundo-principal: #0F0F0F;
+    /* Preto quase puro - fundo geral */
+    --fundo-secundario: #1A1A1A;
+    /* Cinza muito escuro - containers, cards */
+    --fundo-terciario: #2d2d2d88;
+    /* Cinza escuro - inputs, elementos interativos */
 
     /* TEXTOS */
-    --texto-principal: #FFFFFF;         /* Branco - títulos e textos principais */
-    --texto-secundario: #D1D5DB;        /* Cinza claro - textos secundários */
-    --texto-desativado: #9CA3AF;        /* Cinza médio - textos desativados */
+    --texto-principal: #FFFFFF;
+    /* Branco - títulos e textos principais */
+    --texto-secundario: #D1D5DB;
+    /* Cinza claro - textos secundários */
+    --texto-desativado: #9CA3AF;
+    /* Cinza médio - textos desativados */
 
     /* BORDAS */
-    --borda-clara: #404040;             /* Cinza médio - bordas normais */
-    --borda-roxo: #7C3AED;              /* Roxo - bordas com foco */
-    --borda-erro: #EF4444;              /* Vermelho - bordas de erro */
-    --borda-sucesso: #10B981;           /* Verde - bordas de sucesso */
+    --borda-clara: #404040;
+    /* Cinza médio - bordas normais */
+    --borda-roxo: #7C3AED;
+    /* Roxo - bordas com foco */
+    --borda-erro: #EF4444;
+    /* Vermelho - bordas de erro */
+    --borda-sucesso: #10B981;
+    /* Verde - bordas de sucesso */
 
     /* ESTADOS */
-    --erro: #EF4444;                    /* Vermelho para erros */
-    --sucesso: #10B981;                 /* Verde para sucesso */
-    --aviso: #F59E0B;                   /* Amarelo para avisos */
-    --info: #3B82F6;                    /* Azul para informações */
+    --erro: #EF4444;
+    /* Vermelho para erros */
+    --sucesso: #10B981;
+    /* Verde para sucesso */
+    --aviso: #F59E0B;
+    /* Amarelo para avisos */
+    --info: #3B82F6;
+    /* Azul para informações */
 
     /* SOMBRAS */
     --sombra-suave: 1px 1px 10px 1px rgba(124, 58, 237, 0.1);
@@ -54,6 +73,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -121,7 +141,7 @@ body {
     text-shadow: 0px 4px 8px var(--roxo-principal);
 }
 
-.titulo-secundario{
+.titulo-secundario {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -179,7 +199,7 @@ a {
 }
 
 .logar {
-/* CLASSE QUE ENVOLVE TANTO O ICONE QUANTO O INPUT */
+    /* CLASSE QUE ENVOLVE TANTO O ICONE QUANTO O INPUT */
     display: flex;
     position: relative;
     align-items: center;
@@ -242,7 +262,7 @@ input::placeholder {
 }
 
 .icone {
-/* CLASSE DE CADA ICONE */
+    /* CLASSE DE CADA ICONE */
     position: absolute;
     left: 42px;
     width: 20px;
@@ -269,18 +289,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    color: black;
-    transition: all 0.3s ease-out;
-    background-color: var(--borda-roxo);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-shadow: 0px 2px 6px var(--fundo-principal);
-}
-
-button:active {
-    transform: scale(0.80);
-}
-
 .erro {
     text-align: center;
     color: var(--texto-desativado);
@@ -295,12 +303,13 @@ button:active {
     font-size: 0.80rem;
     margin: 5px 20px 0 0;
 }
-#cadastreSe p{
+
+#cadastreSe p {
     margin-bottom: 10px;
     font-size: 0.80rem;
 }
 
-#logarSe{
+#logarSe {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -363,7 +372,7 @@ input::-webkit-outer-spin-button,
 }
 
 span.destaque {
-    font-size: 0.90rem;
+    font-size: 1.3rem;
     color: var(--roxo-claro);
     font-weight: 700;
     text-shadow: 0px 4px 8px var(--roxo-principal);
@@ -387,17 +396,14 @@ div #section-dashboard p {
     align-items: center;
     background: var(--roxo-claro);
     height: 40px;
-    width: 120px;
+    width: auto;
+    padding: 0 10px;
     border-radius: 30px;
 }
 
-#btn-ver-servicos:hover {
-    transition: all 1s ease-out;
-    background: var(--roxo-principal);
-}
 
 #btn-ver-servicos a {
-    margin-left: 10px;
+    margin-bottom: 7px;
     color: #ffffff;
 }
 
@@ -410,28 +416,62 @@ div #section-dashboard p {
     transition: transform 0.3s ease;
 }
 
-#btn-ver-servicos:hover a img {
-    transform: rotate(50deg);
-}
 
 #btn-agendar-agora {
     display: flex;
     justify-content: center;
     height: 50px;
-    width: 160px;
+    width: auto;
+    padding: 0 10px;
     border-radius: 30px;
     border: 1px solid var(--fundo-terciario);
     transition: transform 1s ease-out;
+    margin-bottom: 30px;
 }
 
-#btn-agendar-agora:hover {
-    transition: all 1s ease-out;
-    background: var(--roxo-principal);
-}
+@media (hover:hover) {
+    button:hover {
+        color: black;
+        transition: all 0.3s ease-out;
+        background-color: var(--borda-roxo);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-shadow: 0px 2px 6px var(--fundo-principal);
+    }
 
-#btn-agendar-agora:hover a {
-    transition: all 1s ease-out;
-    color: #ffffff;
+    button:active {
+        transform: scale(0.80);
+    }
+
+    #btn-ver-servicos:hover a img {
+        transform: rotate(50deg);
+    }
+
+    #btn-ver-servicos:hover {
+        transition: all 1s ease-out;
+        background: var(--roxo-principal);
+    }
+
+    #btn-agendar-agora:hover {
+        transition: all 1s ease-out;
+        background: var(--roxo-principal);
+    }
+
+    #btn-agendar-agora:hover a {
+        transition: all 1s ease-out;
+        color: #ffffff;
+    }
+
+    #btn-agendar-agora:hover a img {
+        transition: all 0.1s ease-out;
+        transform: rotate(50deg);
+    }
+
+    .icones-exp:hover {
+        transition: all 0.5s ease-out;
+        background: #a78bfa51;
+        border: 1px solid #a78bfa;
+
+    }
 }
 
 #btn-agendar-agora a img {
@@ -443,17 +483,13 @@ div #section-dashboard p {
 
 }
 
-#btn-agendar-agora:hover a img {
-    transition: all 0.1s ease-out;
-    transform: rotate(50deg);
-}
 
 .titulo-h3 {
     font-size: 2rem;
     font-weight: 400;
     color: var(--texto-principal);
     text-align: center;
-    margin: 10px 0 7px 0;
+    margin: 40px 0 40px 0;
 }
 
 #qualificacoes {
@@ -464,7 +500,7 @@ div #section-dashboard p {
 }
 
 @media (max-width: 768px) {
-    #qualificacoes{
+    #qualificacoes {
         grid-template-columns: 1fr;
     }
 }
@@ -488,12 +524,6 @@ div #section-dashboard p {
     background: #a78bfa2a;
 }
 
-.icones-exp:hover {
-    transition: all 0.5s ease-out;
-    background: #a78bfa51;
-    border: 1px solid #a78bfa;
-
-}
 
 .img-cortes {
     width: 100%;
@@ -520,4 +550,11 @@ div #section-dashboard p {
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     z-index: 1;
+}
+
+#services-py {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
 }
