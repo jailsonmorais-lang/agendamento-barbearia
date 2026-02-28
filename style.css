@@ -93,12 +93,13 @@ body {
 
 .container {
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     background: var(--fundo-secundario);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 40px 20px;
     gap: 40px;
@@ -147,6 +148,13 @@ a {
     box-shadow: 1px 1px 10px 1px var(--borda-roxo);
 }
 
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .div-section {
     border: 1px solid var(--fundo-terciario);
     border-radius: 10px;
@@ -154,14 +162,15 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
-    padding: 20px 20px;
+    justify-content: center;
+    width: 90%;
+    max-width: 400px;
 }
 
 .form-login {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 380px;
     border-radius: 10px;
     padding: 30px 10px;
     background: var(--fundo-terciario);
@@ -430,11 +439,12 @@ div #section-dashboard p {
     width: 90%;
     height: auto;
     padding: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    transition: grid-template-columns 0.3s ease;
     background: rgba(38, 38, 37, 0.462);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
 }
 
 .experiencia {
@@ -493,7 +503,7 @@ div #section-dashboard p {
     background: #2d2d2dd4;
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    padding: 15px;
     border-radius: 0 0 20px 20px;
     gap: 10px;
 }
@@ -515,9 +525,9 @@ div #section-dashboard p {
     color: rgb(112, 131, 146);
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-columns: 1fr 9fr 1fr;
     justify-content: space-evenly;
-    width: 450px;
+    width: 100%;
     height: 60px;
 }
 
@@ -550,7 +560,7 @@ span.precos {
     justify-content: center;
     align-items: center;
     top: 25px;
-    left: 420px;
+    right: 20px;
     height: auto;
     width: auto;
     padding: 10px;
@@ -684,7 +694,6 @@ button:active {
 }
 
 /* ===== RESPONSIVO - MOBILE (até 480px) ===== */
-
 @media (max-width: 480px) {
     body {
         padding: 10px;
@@ -692,23 +701,34 @@ button:active {
 
     .container {
         max-width: 100%;
-        padding: 30px 15px;
+        padding: 20px 15px;
         border-radius: 12px;
+        gap: 20px;
+    }
+
+    #qualificacoes {
+        width: 100%;
+        padding: 20px;  /* Reduzido de 50px */
     }
 }
 
 /* ===== RESPONSIVO - TABLET (481px até 768px) ===== */
-
-@media (min-width: 768px) {
-    #qualificacoes {
-        grid-template-columns: 1fr;
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 25px 20px;
     }
 }
 
 /* ===== RESPONSIVO - DESKTOP (769px acima) ===== */
-
-@media (max-width: 768px) {
+@media (min-width: 769px) {
     .container {
         max-width: 600px;
+        padding: 40px 20px;
+    }
+
+    #qualificacoes {
+        width: 90%;
+        padding: 50px;
     }
 }
