@@ -64,7 +64,7 @@ function validarLogin() {
         retorno.innerHTML = 'Senha deve conter pelo menos uma letra maiúscula'
         retorno.style.textShadow = erro
     } else {
-        mudarTela('tela-home')
+        mudarTela('tela-dashboard')
     }
 }
 
@@ -95,7 +95,6 @@ document.querySelector('#tela-login a[href="#cadastre-se"]').addEventListener('c
     limparCadastro()
 })
 
-/* ====== VALIDAÇÃO DE CADASTRO ====== */
 // Função para limpar campo de cadastro
 
 function limparCadastro() {
@@ -121,6 +120,7 @@ function limparCadastro() {
     codigoGerado = ''
 }
 
+/* ====== VALIDAÇÃO DE CADASTRO ====== */
 function validarCadastro() {
     if (nomeCadastro.value.length == 0) {
         erroCadastro.innerHTML = 'Campo "Nome" não pode ficar em branco.'

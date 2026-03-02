@@ -620,6 +620,11 @@ button:active {
     transition: all 0.1s ease-out;
 }
 
+.btn-agendar-pelo-whatsApp:active img {
+        filter: brightness(0);
+        transition: all 0.3s ease-out;
+    }
+
 /* ====== FEEDBACK AO PASSAR O MOUSE (HOVER) ====== */
 
 @media (hover:hover) {
@@ -671,6 +676,11 @@ button:active {
 
     .div-imgcorte-descricao-preco:hover {
         box-shadow: 1px 1px 10px 1px var(--roxo-claro);
+        transition: all 0.3s ease-out;
+    }
+
+    .btn-agendar-pelo-whatsApp:hover img {
+        filter: brightness(0);
         transition: all 0.3s ease-out;
     }
 }
@@ -762,4 +772,109 @@ button:active {
     .cortes-text-cards {
         height: 300px;
     }
+}
+
+.chamada-para-whatsapp {
+    
+    margin-top: 30px;
+    background: rgba(38, 38, 37, 0.696);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 15px;
+}
+
+
+.chamada-para-whatsapp h3 {
+    color: var(--texto-principal);
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 90%;
+}
+
+.chamada-para-whatsapp p {
+    padding: 10px;
+    height: auto;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--texto-secundario);
+}
+
+.heding-p-button-whatsapp {
+    padding: 10px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+}
+
+.btn-agendar-pelo-whatsApp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    font-size: 1.2rem;
+    padding: 10px 10px;
+}
+
+.icone-btn-whatsapp {
+    position: relative;
+    right: 5px;    
+    width: 20px;
+    height: 20px;
+}
+
+footer.dashboard {
+    padding: 20px 20px;
+    background: rgba(38, 38, 37, 0.696);
+    color: var(--texto-principal);
+    border-radius: 15px;
+}
+
+.endereco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-direction: column;
+    margin: 13px 0 20px 0;
+    color: var(--texto-desativado);
+}
+
+.endereco span {
+    margin-bottom: 8px;    
+}
+
+.horarios-funcionamento h4 {
+    margin-bottom: 20px;
+}
+
+.dias-horarios {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--texto-desativado);
+}
+
+.horarios {
+    color: var(--roxo-claro);
+}
+
+.icones-footer-dashboard {
+    position: relative;
+    right: 5px;    
+    top: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+#direitos-autorais p{
+    font-size: 0.80rem;
+    color: var(--texto-desativado);
+}
+
+
+#direitos-autorais {
+    text-align: center;
+    padding: 30px 0 30px 0;
+    border-top: 1px solid rgba(82, 79, 79, 0.517);
 }
