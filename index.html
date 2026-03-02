@@ -270,7 +270,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>45 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="classico" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -288,7 +288,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>30 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="barba" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -306,7 +306,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>60 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="barba" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -324,7 +324,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>35 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="infantil" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -342,7 +342,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>15 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="sobrancelha" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -360,7 +360,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>90 min</span>
-                                                <a class="div-informacoes-cortes-agendar"
+                                                <a data-corte="platinado" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -387,12 +387,15 @@
                 </section>
             </div>
 
-            <footer class="dashboard">
+            <footer class="dashboard tela">
                 <h4>Contato</h4>
-                <div class="endereco">    
-                    <span> <img src="icones/mapa.svg" alt="ebdereço"  class="icones-footer-dashboard">Setor Leste, 123 - Planaltina GO</span>
-                    <span> <img src="icones/telefone.svg" alt="telefone para contato" class="icones-footer-dashboard">(61) 99999-9999</span>
-                    <span><img src="icones/clock-tempo.svg" alt="horarios" class="icones-footer-dashboard"> Seg-Sáb: 9h-19h</span>
+                <div class="endereco">
+                    <span> <img src="icones/mapa.svg" alt="ebdereço" class="icones-footer-dashboard">Setor Leste, 123 -
+                        Planaltina GO</span>
+                    <span> <img src="icones/telefone.svg" alt="telefone para contato"
+                            class="icones-footer-dashboard">(61) 99999-9999</span>
+                    <span><img src="icones/clock-tempo.svg" alt="horarios" class="icones-footer-dashboard"> Seg-Sáb:
+                        9h-19h</span>
                 </div>
                 <div class="horarios-funcionamento">
                     <h4>Horários</h4>
@@ -414,9 +417,76 @@
                 </div>
             </footer>
         </div>
+        <div id="tela-agendamento" class="tela">
+            <div class="container">
+                <div class="div-section-agendamentos">
+                    <section class="secao-resumo-corte">
+                        <h2>Serviço Selecionado</h2>
+                        <div class="cortes-text-cards">
+                            <img class="img-cortes" src="" alt="imagem do corte" id="corte-imagem">
+                        </div>
+                        <div>
+                            <h3 id="corte-nome"></h3>
+                            <p class="descricao-do-corte" id="corte-descricao"></p>
+                            <p><span id="corte-preco"></span></p>
+                            <p>Tempo: <span id="corte-tempo"></span></p>
+                        </div>
+                    </section>
+
+                    <section class="secao-dados-cliente">
+                        <h2>Seus Dados</h2>
+
+                        <label for="cliente-nome">Nome</label>
+                        <input type="text" name="cliente-nome" id="cliente-nome" placeholder="Seu nome">
+
+                        <label for="cliente-telefone">Telefone</label>
+                        <input type="tel" name="cliente-telefone" id="cliente-telefone" placeholder="61999999999">
+
+                        <label for="cliente-email">Email</label>
+                        <input type="email" name="cliente-email" id="cliente-email" placeholder="seu@email.com">
+
+                    </section>
+
+                    <section class="secao-barbeiro">
+                        <h2>Escolha seu Barbeiro</h2>
+
+                        <label for="barbeiro-select">Qual barbeiro você prefere</label>
+
+                        <select name="barbeiro-select" id="barbeiro-select">
+                            <option value="">-- Selecione um barbeiro --</option>
+                            <option value="joao">João</option>
+                            <option value="pedro">Pedro</option>
+                            <option value="carlos">Carlos</option>
+                        </select>
+                    </section>
+
+                    <section class="secao-data-hora">
+                        <h2>Data e Hora</h2>
+
+                        <label for="agendamento-data">Data</label>
+                        <input type="date" name="agendamento-data" id="agendamento-data">
+
+                        <label for="agendamento-hora">Hora</label>
+                        <input type="time" name="agendamento-hora" id="agendamento-hora">
+                    </section>
+
+                    <section class="secao-observacoes">
+                        <h2>Observações (Opcional)</h2>
+
+                        <label for="agendamento-observacoes">Algo especial que devemos saber?</label>
+                        <textarea name="agendamento-observacoes" id="agendamento-observacoes"
+                            placeholder="Ex: Tenho cabelo muito liso..." rows="4"></textarea>
+                    </section>
+
+                    <div class="secao-botao">
+                        <button id="btn-confirmar-agendamento" type="button">
+                            Confirmar Agendamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-
-
     <script src="script.js" defer></script>
 </body>
 

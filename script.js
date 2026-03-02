@@ -262,3 +262,92 @@ function criarNovaSenha() {
         mudarTela('tela-login')
     }
 }
+
+/* TELA DE AGENDAMENTO */
+
+const cortes = {
+    classico: {
+        nome: 'Corte Clássico',
+        descricao: 'Corte tradicional com máquina e tesoura',
+        preco: 35,
+        tempo: '45 min',
+        imagem: 'icones/ornaw-haircut-4019676_1280.webp'
+    },
+
+    barba: {
+        nome: 'Barba & Bigode',
+        descricao: 'Alinhamento completo com navalha',
+        preco: 25,
+        tempo: '30 min',
+        imagem: 'icones/pexels-beard-1845166_1280.webp'
+    },
+
+    combo: {
+        nome: 'Corte + Barba',
+        descricao: 'Combo completo para o visual perfeito',
+        preco: 55,
+        tempo: '60 min',
+        imagem: 'icones/pexels-cottonbro-3998415.webp'
+    },
+
+    infantil: {
+        nome: 'Infantil',
+        descricao: 'Corte especial para crianças',
+        preco: 25,
+        tempo: '35 min',
+        imagem: 'icones/mostafa_meraji-barber-6818714_1280.webp'
+    },
+
+    sobrancelha: {
+        nome: 'Sobrancelha',
+        descricao: 'Design e alinhamento preciso',
+        preco: 15,
+        tempo: '15 min',
+        imagem: 'icones/pexels-cottonbro-3998428.webp'
+    },
+
+    platinado: {
+        nome: 'Platinado',
+        descricao: 'Descoloração completa profissional',
+        preco: 80,
+        tempo: '90 min',
+        imagem: 'icones/pexels-pavel-danilyuk-7518760.webp'
+    },
+}
+
+const barbeiros = {
+    joao: {
+        nome: 'João',
+        especialidade: 'Cortes clássicos',
+        foto: 'icones/brilhos.svg'
+    },
+
+    pedro: {
+        nome: 'Pedro',
+        especialidade: 'Barba e design',
+        foto: 'icones/premio.svg'
+    },
+
+    carlos: {
+        nome: 'Carlos',
+        especialidade: 'Todos os estilos',
+        foto: 'icones/usuarios.svg'
+    }
+}
+
+const botoesCorte = document.querySelectorAll('[data-corte]')
+
+botoesCorte.forEach((botao) => {
+    botao.addEventListener('click', () => {
+        const corteClicado = botao.getAttribute('data-corte')
+        const dadosCorte = cortes[corteClicado]
+
+        document.getElementById('corte-nome').textContent = dadosCorte.nome
+        document.getElementById('corte-descricao').textContent = dadosCorte.descricao
+        document.getElementById('corte-preco').textContent = dadosCorte.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        document.getElementById('corte-tempo').textContent = dadosCorte.tempo
+        document.getElementById('corte-imagem').src = dadosCorte.imagem
+
+        mudarTela('tela-agendamento')
+    })
+})
