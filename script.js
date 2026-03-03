@@ -207,6 +207,11 @@ document.querySelector('button#redefinir-senha').addEventListener('click', (even
     criarNovaSenha()
 })
 
+document.querySelector('button#btn-voltar-dashboard').addEventListener('click', (evento) => {
+    evento.preventDefault()
+    mudarTela('tela-dashboard')
+})
+
 /* ====== RECUPERAÇÃO DE SENHA ====== */
 
 function enviarCodigo() {
@@ -331,7 +336,7 @@ const barbeiros = {
     carlos: {
         nome: 'Carlos',
         especialidade: 'Todos os estilos',
-        foto: 'icones/usuarios.svg'
+        foto: 'icones/delfina-pan-wJoB8D3hnzc-unsplash.webp'
     }
 }
 
@@ -350,4 +355,18 @@ botoesCorte.forEach((botao) => {
 
         mudarTela('tela-agendamento')
     })
+})
+
+const select = document.getElementById('barbeiro-select')
+select.addEventListener('change', () => {
+    const barbeiroSelecionado = select.value
+    const dadosBarbeiro = barbeiros[barbeiroSelecionado]
+
+    console.log(dadosBarbeiro.nome)
+    console.log(dadosBarbeiro.especialidade)
+    console.log(dadosBarbeiro.foto)
+
+    document.getElementById('barbeiro-nome').textContent = dadosBarbeiro.nome
+    document.getElementById('especialidade-corte').textContent = dadosBarbeiro.especialidade
+    document.getElementById('barbeiro-imagem').src = dadosBarbeiro.foto
 })

@@ -205,7 +205,8 @@
                 <section>
                     <div id="section-dashboard" class="div-section">
                         <h2 class="titulo-dashboard">Estilo que faz <br><span class="destaque">a diferença</span></h2>
-                        <p>Tradição em cortes masculinos com a qualidade e sofisticação que você merece</p>
+                        <p class="tradicao">Tradição em cortes masculinos com a qualidade e sofisticação que você merece
+                        </p>
                         <div id="btns-navegacao">
                             <div id="btn-ver-servicos">
                                 <a href="#verServiços">Ver Serviços <img src="icones/tesoura.svg" alt="tesoura"
@@ -217,8 +218,8 @@
                             </div>
                         </div>
 
-                        <img style="box-shadow: none; opacity: 100%; margin-top: 20px;" class="logo"
-                            src="icones/solomka2002-salon-7820299.webp" alt="img ilustrativa" loading="lazy">
+                        <img class="logo" src="icones/solomka2002-salon-7820299.webp" alt="img ilustrativa"
+                            loading="lazy">
 
                         <h3 class="titulo-h3">Porque nos escolher?</h3>
                         <p>Experiência <span class="destaque">Premium</span> em cada detalhe</p>
@@ -253,7 +254,7 @@
                             </div>
                         </div>
                         <section>
-                            <div id="services-py">
+                            <div id="verServiços" id="services-py">
                                 <h2 style="text-align: center;" class="titulo-secundario">Escolha o servico ideal</h2>
                                 <p><span class="destaque">Qualidade e precisão em cada atendimento</span></p>
                                 <div id="escolha-o-servico">
@@ -417,9 +418,14 @@
                 </div>
             </footer>
         </div>
+
+        <!-- TELA: 6 AGENDAMENTO -->
+
         <div id="tela-agendamento" class="tela">
             <div class="container">
                 <div class="div-section-agendamentos">
+                    <button type="button" id="btn-voltar-dashboard"><img class="icone-voltar" src="icones/retornar.svg"
+                            alt="botão de voltar"></button>
                     <section class="secao-resumo-corte">
                         <h2>Serviço Selecionado</h2>
                         <div class="cortes-text-cards">
@@ -458,6 +464,13 @@
                             <option value="pedro">Pedro</option>
                             <option value="carlos">Carlos</option>
                         </select>
+                        <div id="dados-do-barbeiro-selecionado">
+                            <h3 id="barbeiro-nome"></h3>
+                            <div class="foto-do-barbeiro-selecionado">
+                                <img class="img-barbeiro" src="" alt="imagem do barbeiro" id="barbeiro-imagem" loading="lazy">
+                            </div>
+                            <p class="especialidade-de-corte" id="especialidade-corte"></p>
+                        </div>
                     </section>
 
                     <section class="secao-data-hora">
