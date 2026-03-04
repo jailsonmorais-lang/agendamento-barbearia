@@ -307,7 +307,7 @@
                                                 <img class="icone-clock" src="icones/clock-tempo.svg"
                                                     alt="tempo de corte" loading="lazy">
                                                 <span>60 min</span>
-                                                <a data-corte="barba" class="div-informacoes-cortes-agendar"
+                                                <a data-corte="combo" class="div-informacoes-cortes-agendar"
                                                     href="#agendar-agora">Agendar</a>
                                             </div>
                                         </div>
@@ -371,14 +371,15 @@
 
                                     <div class="chamada-para-whatsapp">
                                         <div class="heding-p-button-whatsapp">
-                                            <h3 class="titulo-secundario">Ponto para transformar seu visual?</h3>
-                                            <p>Agende seu horário agora pelo WhatsApp e garanta um atendimento de
+                                            <h3 class="titulo-secundario">Pronto para transformar seu visual?</h3>
+                                            <p id="agende-seu-horario">Agende seu horário agora pelo WhatsApp e garanta
+                                                um atendimento de
                                                 primeira
                                                 qualidade</p>
-                                            <button class="btn-agendar-pelo-whatsApp"> <img src="icones/whatsapp.svg"
+                                            <a id="agendarAgora"  href="https://wa.me/5561998729994?text=Olá! Vim pelo site da Barbearia Morais e gostaria de agendar um atendimento. Quais horários estão disponíveis?" target="_blank" class="btn-agendar-pelo-whatsApp"> <img src="icones/whatsapp.svg"
                                                     alt="botao whatsapp" class="icone-btn-whatsapp" loading="lazy">
                                                 Agendar
-                                                pelo WhatsApp</button>
+                                                pelo WhatsApp</a>
                                         </div>
                                     </div>
                                 </article>
@@ -423,7 +424,7 @@
 
         <div id="tela-agendamento" class="tela">
             <div class="container">
-                <div class="div-section-agendamentos">
+                <div id="agendar-agora" class="div-section-agendamentos">
                     <button type="button" id="btn-voltar-dashboard"><img class="icone-voltar" src="icones/retornar.svg"
                             alt="botão de voltar"></button>
                     <section class="secao-resumo-corte">
@@ -448,9 +449,6 @@
                         <label for="cliente-telefone">Telefone</label>
                         <input type="tel" name="cliente-telefone" id="cliente-telefone" placeholder="61999999999">
 
-                        <label for="cliente-email">Email</label>
-                        <input type="email" name="cliente-email" id="cliente-email" placeholder="seu@email.com">
-
                     </section>
 
                     <section class="secao-barbeiro">
@@ -466,8 +464,8 @@
                         </select>
                         <div id="dados-do-barbeiro-selecionado">
                             <h3 id="barbeiro-nome"></h3>
-                            <div class="foto-do-barbeiro-selecionado">
-                                <img class="img-barbeiro" src="" alt="imagem do barbeiro" id="barbeiro-imagem" loading="lazy">
+                            <div id="foto-do-barbeiro-selecionado">
+                                <img class="img-barbeiro" src="" alt="" id="barbeiro-imagem" loading="lazy">
                             </div>
                             <p class="especialidade-de-corte" id="especialidade-corte"></p>
                         </div>

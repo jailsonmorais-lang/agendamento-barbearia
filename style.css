@@ -7,13 +7,13 @@
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
-div.tela {
+/* div.tela {
     display: none;
 }
 
 .tela.ativa {
     display: block;
-}
+} */
 
 /* VARIÁVEIS */
 :root {
@@ -332,7 +332,7 @@ input::-webkit-outer-spin-button,
 }
 
 #section-dashboard {
-    margin-top: 100px;
+    margin-top: 25px;
     padding: 0;
     width: 100%;
     border: none;
@@ -371,16 +371,17 @@ section div.div-section p.tradicao {
 }
 
 span.destaque {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--roxo-claro);
     font-weight: 700;
     text-shadow: 0px 4px 8px var(--roxo-principal);
 }
 
 div #section-dashboard p {
+    font-size: 1.5rem;
     text-align: center;
     margin-bottom: 30px;
-    line-height: 1.3;
+    line-height: 1.5rem;
 }
 
 #btns-navegacao {
@@ -452,11 +453,12 @@ div #section-dashboard p {
 #qualificacoes {
     width: 90%;
     height: auto;
-    padding: 50px;
+    padding: 20px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: rgba(38, 38, 37, 0.462);
+    background: rgba(38, 38, 37, 0.729);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.38);
 }
@@ -482,7 +484,7 @@ div #section-dashboard p {
 
 
 .img-cortes {
-    width: 350px;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
@@ -495,6 +497,7 @@ div #section-dashboard p {
     object-fit: cover;
     overflow: hidden;
     border-radius: 20px 20px 0 0;
+    aspect-ratio: 1.5 / 1;
 }
 
 .cortes-text-cards::before {
@@ -795,14 +798,14 @@ div.div-section-agendamentos button#btn-voltar-dashboard:active {
 }
 
 
-.chamada-para-whatsapp h3 {
+div.chamada-para-whatsapp h3 {
     color: var(--texto-principal);
     font-size: 1.8rem;
     font-weight: 600;
     width: 90%;
 }
 
-.chamada-para-whatsapp p {
+div.heding-p-button-whatsapp #agende-seu-horario {
     padding: 10px;
     height: auto;
     font-size: 1rem;
@@ -837,6 +840,7 @@ div.div-section-agendamentos button#btn-voltar-dashboard:active {
 }
 
 footer.dashboard {
+    margin: 10px 10px;
     padding: 20px 20px;
     background: rgba(38, 38, 37, 0.696);
     color: var(--texto-principal);
@@ -983,6 +987,7 @@ select#barbeiro-select {
     cursor: pointer;
 
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 select#barbeiro-select:hover {
@@ -1168,4 +1173,19 @@ div.foto-do-barbeiro-selecionado img.img-barbeiro::before {
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     z-index: 1;
+}
+
+#foto-do-barbeiro-selecionado {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.img-barbeiro {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }

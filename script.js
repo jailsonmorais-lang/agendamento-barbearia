@@ -287,7 +287,7 @@ const cortes = {
         imagem: 'icones/pexels-beard-1845166_1280.webp'
     },
 
-    combo: {
+             combo: {
         nome: 'Corte + Barba',
         descricao: 'Combo completo para o visual perfeito',
         preco: 55,
@@ -360,6 +360,11 @@ botoesCorte.forEach((botao) => {
 const select = document.getElementById('barbeiro-select')
 select.addEventListener('change', () => {
     const barbeiroSelecionado = select.value
+
+    if (barbeiroSelecionado === '') {
+        return
+    }
+
     const dadosBarbeiro = barbeiros[barbeiroSelecionado]
 
     console.log(dadosBarbeiro.nome)
@@ -370,3 +375,8 @@ select.addEventListener('change', () => {
     document.getElementById('especialidade-corte').textContent = dadosBarbeiro.especialidade
     document.getElementById('barbeiro-imagem').src = dadosBarbeiro.foto
 })
+
+const nomeCliente = document.querySelector('input#cliente-nome').value
+const telefoneCliente = document.querySelector('input#cliente-telefone').value
+const data = document.querySelector('input#agendamento-data').value
+const hora = document.querySelector('input#agendamento-hora').value
