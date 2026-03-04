@@ -7,13 +7,13 @@
 }
 
 /* NAVEGAÇÃO ENTRE TELAS */
-/* div.tela {
+div.tela {
     display: none;
 }
 
 .tela.ativa {
     display: block;
-} */
+}
 
 /* VARIÁVEIS */
 :root {
@@ -92,8 +92,9 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     max-width: 600px;
+    margin: 0 auto;
     background: var(--fundo-secundario);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -899,6 +900,8 @@ footer.dashboard {
 
 div.div-section-agendamentos button#btn-voltar-dashboard {
     display: flex;
+    position: relative;
+    right: 200px;
     width: auto;
 }
 
@@ -917,9 +920,25 @@ div.div-section-agendamentos button#btn-voltar-dashboard img.icone-voltar {
     text-shadow: 0px 2px 6px var(--roxo-principal);
 }
 
+
+div#agendar-agora.div-section-agendamentos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.secao-resumo-corte {
+    width: 90%;
+    max-width: 400px;
+}
+
 section.secao-resumo-corte h2 {
     font-size: 2rem;
     margin: 10px 0 40px 0;
+}
+
+section.secao-dados-cliente {
+    width: 90%;
 }
 
 section.secao-dados-cliente h2 {
@@ -951,16 +970,17 @@ section.secao-resumo-corte span {
 
 section.secao-dados-cliente label {
     position: relative;
-    left: 20px;
+    left: 50px;
     width: 95%;
-    margin: 15px 0 3px 0;
+    margin: 15px 0 6px 0;
     color: var(--texto-secundario);
     text-shadow: 0px 2px 6px var(--roxo-principal);
 }
 
 section.secao-dados-cliente input {
     display: flex;
-    width: 300px;
+    width: 90%;
+    max-width: 220px;
 }
 
 section.secao-barbeiro label {
@@ -973,7 +993,8 @@ section.secao-barbeiro label {
 
 select#barbeiro-select {
     width: 90%;
-    padding: 8px 13px;
+    max-width: 300px;
+    height: 20px;
     margin: 10px 0 20px 0;
 
     background-color: #1A1A1A;
@@ -1072,7 +1093,8 @@ input#agendamento-hora::-webkit-calendar-picker-indicator {
 /* ===== TEXTAREA OBSERVAÇÕES ===== */
 
 textarea#agendamento-observacoes {
-    width: 100%;
+    max-width: 300px;
+    width: 90%;
     padding: 12px 16px;
     margin: 10px 0 20px 0;
 
@@ -1121,12 +1143,20 @@ div.secao-botao {
     justify-content: center;
 }
 
+section.secao-data-hora {
+    width: 90%;
+}
+
 section.secao-data-hora label {
     margin-top: 20px;
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--texto-secundario);
     text-shadow: 0px 2px 6px var(--roxo-principal);
+}
+
+section.secao-observacoes {
+    width: 90%;
 }
 
 section.secao-observacoes label {
@@ -1140,6 +1170,8 @@ section.secao-observacoes label {
 #barbeiro-nome {
     font-size: 1.6rem;
     width: 100%;
+    margin: 10px 5px;
+    text-shadow: 0px 2px 6px var(--roxo-principal);
     color: #a8b1b7;
 }
 
@@ -1149,6 +1181,8 @@ section.secao-barbeiro div#dados-do-barbeiro-selecionado {
     justify-content: center;
     align-items: center;
     width: 90%;
+    max-width: 300px;
+    margin: 20px 10px;  
     background: rgba(38, 38, 37, 0.769);
     border-radius: 35px 10px 35px 10px;
     padding: 10px;
@@ -1163,7 +1197,7 @@ div.foto-do-barbeiro-selecionado img.img-barbeiro {
     border-radius: 35px 10px 35px 10px;
 }
 
-div.foto-do-barbeiro-selecionado img.img-barbeiro::before {
+div#foto-do-barbeiro-selecionado img.img-barbeiro::before {
     content: '';
     position: absolute;
     top: 0;

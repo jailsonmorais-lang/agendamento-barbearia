@@ -287,7 +287,7 @@ const cortes = {
         imagem: 'icones/pexels-beard-1845166_1280.webp'
     },
 
-             combo: {
+    combo: {
         nome: 'Corte + Barba',
         descricao: 'Combo completo para o visual perfeito',
         preco: 55,
@@ -367,16 +367,59 @@ select.addEventListener('change', () => {
 
     const dadosBarbeiro = barbeiros[barbeiroSelecionado]
 
-    console.log(dadosBarbeiro.nome)
-    console.log(dadosBarbeiro.especialidade)
-    console.log(dadosBarbeiro.foto)
-
     document.getElementById('barbeiro-nome').textContent = dadosBarbeiro.nome
     document.getElementById('especialidade-corte').textContent = dadosBarbeiro.especialidade
     document.getElementById('barbeiro-imagem').src = dadosBarbeiro.foto
+
 })
 
-const nomeCliente = document.querySelector('input#cliente-nome').value
-const telefoneCliente = document.querySelector('input#cliente-telefone').value
-const data = document.querySelector('input#agendamento-data').value
-const hora = document.querySelector('input#agendamento-hora').value
+const botaoConfirmar = document.getElementById('btn-confirmar-agendamento')
+
+botaoConfirmar.addEventListener('click', () => {
+    const nomeCliente = document.querySelector('input#cliente-nome').value
+    const telefoneCliente = document.querySelector('input#cliente-telefone').value
+    const data = document.querySelector('input#agendamento-data').value
+    const hora = document.querySelector('input#agendamento-hora').value
+    const observacao = document.querySelector('textarea#agendamento-observacoes').value
+
+    const nomeCorte = document.getElementById('corte-nome').textContent
+    const precoCorte = document.getElementById('corte-preco').textContent
+    const nomeBarbeiro = document.getElementById('barbeiro-nome').textContent
+
+    const mensagem = `
+╔════════════════════════════╗
+║      CONFIRMAÇÃO DE AGENDAMENTO        ║
+╚════════════════════════════╝
+
+► Olá! Meu nome é: *${nomeCliente}*
+
+► Celular: *${telefoneCliente}*
+
+◆ DETALHES DO AGENDAMENTO ◆
+
+► Data: ${data}
+► Hora: ${hora}
+
+► Serviço: *${nomeCorte}*
+► Profissional: *${nomeBarbeiro}*
+► Valor: *${precoCorte}*
+
+◆ Observação ◆
+*${observacao}*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Aguardando confirmação!
+
+Obrigado pela preferência!
+Barbearia Morais - Excelência em Cortes`
+
+    const mensagemCodificada = encodeURIComponent(mensagem)
+
+    if (nomeCliente.length == 0 || telefoneCliente.length == 0 || data.length == 0 || hora.length == 0 || nomeBarbeiro.length == 0) {
+        alert('😊 Ei! Parece que você deixou alguns campos em branco.\n\nPreencha tudo direitinho e tente novamente!')
+        return
+    } else {
+        window.open(`https://wa.me/5561998729994?text=${mensagemCodificada}`, '_blank')
+    }
+})
+
