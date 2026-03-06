@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,9 @@
         <!-- TELA 1: LOGIN -->
         <div id="tela-login" class="tela ativa">
             <div class="container">
-                <img class="logo" src="icones/logo.inicial.webp" alt="logo" loading="lazy">
+                <div class="logo">
+                    <img src="icones/logo.inicial.webp" alt="logo" loading="lazy">
+                </div>
                 <h1 class="titulo-principal">Barbearia Morais</h1>
                 <section>
                     <div class="div-section">
@@ -60,7 +62,9 @@
 
         <div id="tela-criar-conta" class="tela">
             <div class="container">
-                <img src="icones/logo.inicial.webp" alt="logo" class="logo" loading="lazy">
+                <div class="logo">
+                    <img src="icones/logo.inicial.webp" alt="logo" loading="lazy">
+                </div>
                 <section>
                     <div class="div-section">
                         <h2 class="titulo-secundario"> Faça seu Cadastro</h2>
@@ -205,7 +209,7 @@
                 <section>
                     <div id="section-dashboard" class="div-section">
                         <h2 class="titulo-dashboard">Estilo que faz <br><span class="destaque">a diferença</span></h2>
-                        <p class="tradicao">Tradição em cortes masculinos com a qualidade e sofisticação que você merece
+                        <p id="tradicao">Tradição em cortes masculinos com a qualidade e sofisticação que você merece
                         </p>
                         <div id="btns-navegacao">
                             <div id="btn-ver-servicos">
@@ -217,9 +221,10 @@
                                     Agendar Agora</a>
                             </div>
                         </div>
-
-                        <img class="logo" src="icones/solomka2002-salon-7820299.webp" alt="img ilustrativa"
+                        <div class="logo">
+                            <img src="icones/solomka2002-salon-7820299.webp" alt="img ilustrativa"
                             loading="lazy">
+                        </div>
 
                         <h3 class="titulo-h3">Porque nos escolher?</h3>
                         <p>Experiência <span class="destaque">Premium</span> em cada detalhe</p>
@@ -376,8 +381,11 @@
                                                 um atendimento de
                                                 primeira
                                                 qualidade</p>
-                                            <a id="agendarAgora"  href="https://wa.me/5561998729994?text=Olá%20Barbearia%20Morais!%20Vim%20pelo%20seu%20aplicativo%20e%20gostaria%20de%20agendar%20um%20atendimento.%20Qual%20é%20a%20disponibilidade%20de%20horários%20para%20as%20próximas%20datas?%20Desde%20já,%20obrigado!" target="_blank" class="btn-agendar-pelo-whatsApp"> <img src="icones/whatsapp.svg"
-                                                    alt="botao whatsapp" class="icone-btn-whatsapp" loading="lazy">
+                                            <a id="agendarAgora"
+                                                href="https://wa.me/5561998729994?text=Olá%20Barbearia%20Morais!%20Vim%20pelo%20seu%20aplicativo%20e%20gostaria%20de%20agendar%20um%20atendimento.%20Qual%20é%20a%20disponibilidade%20de%20horários%20para%20as%20próximas%20datas?%20Desde%20já,%20obrigado!"
+                                                target="_blank" class="btn-agendar-pelo-whatsApp"> <img
+                                                    src="icones/whatsapp.svg" alt="botao whatsapp"
+                                                    class="icone-btn-whatsapp" loading="lazy">
                                                 Agendar
                                                 pelo WhatsApp</a>
                                         </div>
@@ -490,7 +498,7 @@
                     </section>
 
                     <div class="secao-botao">
-                        <button id="btn-confirmar-agendamento" type="button">
+                        <button id="btn-confirmar-agendamento" type="submit">
                             Confirmar Agendamento
                         </button>
                     </div>

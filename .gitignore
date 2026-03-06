@@ -24,3 +24,12 @@ cypress/downloads/
 Thumbs.db
 *.log
 npm-debug.log*
+# Python
+backend/venv/
+backend/__pycache__/
+*.pyc
+
+# Python - IMPORTANTE
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
