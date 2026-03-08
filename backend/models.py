@@ -1,5 +1,5 @@
 import mysql.connector
-from config import DB_HOST, DB_USER, PASSWORD, DB_NAME
+from config import DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT
 
 
 class Database:
@@ -12,8 +12,10 @@ class Database:
             self.connection = mysql.connector.connect(
                 host=DB_HOST,
                 user=DB_USER,
-                password=PASSWORD,
-                database=DB_NAME
+                password=DB_PASSWORD,
+                database=DB_NAME,
+                port=DB_PORT,
+                ssl_disabled=False
             )
             print('✅ Conectado ao banco de dados!')
             return True
