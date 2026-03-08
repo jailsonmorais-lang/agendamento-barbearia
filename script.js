@@ -14,6 +14,7 @@ const senhaConfirmar = document.querySelector('input#password-confirmar') /* Con
 const whatsapp = document.querySelector('input#whatsapp')                 /* Whatsapp para cadastro */
 const erroCadastro = document.querySelector('div#erro-cadastro')          /* div para mostrar erro no momento do cadastro */
 
+
 // Gerar código para criar nova senha
 let codigoGerado = ''
 const erroRecuperaSenha = document.querySelector('div#erro-recupera-senha')
@@ -64,7 +65,32 @@ function validarLogin() {
         retorno.innerHTML = 'Senha deve conter pelo menos uma letra maiúscula'
         retorno.style.textShadow = erro
     } else {
-        mudarTela('tela-dashboard')
+        const dadosParaLogin = {
+            email: email.value,
+            senha: senha.value,
+        }
+
+        fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosParaLogin)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.Erro) {
+                    alert(data.Erro)
+                } else {
+                    mudarTela('tela-dashboard')
+                    alert('Login realizado com sucesso!');
+                    console.log('Resposta do Backend:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao fazer login conta!');
+            });
     }
 }
 
@@ -156,6 +182,34 @@ function validarCadastro() {
         erroCadastro.innerHTML = 'Número de WhatsApp invalido'
         erroCadastro.style.textShadow = erro
     } else {
+
+        const dadosParaCadastro = {
+            nome_completo: nomeCadastro.value,
+            email: emailCadastro.value,
+            senha: senhaCadastro.value,
+            whatsapp: whatsapp.value
+        }
+
+        fetch('http://localhost:5000/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosParaCadastro)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.Erro) {
+                    alert(data.Erro)
+                } else {
+                    console.log('Resposta do Backend:', data);
+                    alert('Conta criada com sucesso!');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao criar conta!');
+            });
         mudarTela('tela-login')
     }
 }

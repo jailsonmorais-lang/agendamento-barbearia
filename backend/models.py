@@ -1,5 +1,5 @@
 import mysql.connector
-from config import DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
+from config import DB_HOST, DB_USER, PASSWORD, DB_NAME
 
 
 class Database:
@@ -12,7 +12,7 @@ class Database:
             self.connection = mysql.connector.connect(
                 host=DB_HOST,
                 user=DB_USER,
-                password=DB_PASSWORD,
+                password=PASSWORD,
                 database=DB_NAME
             )
             print('✅ Conectado ao banco de dados!')
@@ -41,11 +41,11 @@ class Database:
             print(f'❌ Erro na query: {erro}')
             return False
 
-    def obter_dados(self, query):
+    def obter_dados(self, query, valores=None):
         """ OBTÉM DADOS DO BANCO """
         try:
             cursor = self.connection.cursor(dictionary=True)
-            cursor.execute(query)
+            cursor.execute(query, valores)
             return cursor.fetchall()
         except mysql.connector.Error as erro:
             print(f'❌ Erro ao obter dados: {erro}')
