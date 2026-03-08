@@ -711,7 +711,7 @@ div.div-section-agendamentos button#btn-voltar-dashboard:active {
         max-width: 90%;
         padding: 10px 10px;
         border-radius: 12px;
-        gap: 20px;
+        gap: 10px;
     }
 
     #qualificacoes {
