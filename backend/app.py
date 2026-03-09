@@ -2,6 +2,9 @@ from flask import Flask, send_from_directory
 from flask_cors import CORS
 from models import db
 import os
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 # Ajuste de caminhos: base_dir é a pasta 'backend'
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -43,3 +46,14 @@ def servir_icones(filename):
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)  # debug=True para local
+
+@app.before_first_request
+def debug_paths():
+    logging.info(f"Current working dir: {os.getcwd()}")
+    logging.info(f"__file__: {__file__}")
+    logging.info(f"Frontend dir: {frontend_dir}")
+    index_path = os.path.join(frontend_dir, 'index.html')
+    logging.info(f"index.html full path: {index_path}")
+    logging.info(f"index.html exists? {os.path.exists(index_path)}")
+    if not os.path.exists(index_path):
+        logging.error("index.html NÃO ENCONTRADO - verifique pasta frontend no git")
