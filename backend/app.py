@@ -28,6 +28,12 @@ def servir_frontend():
 def servir_arquivos(filename):
     return send_from_directory(frontend_dir, filename)
 
+# ROTA ESPECÍFICA PARA A PASTA ICONES (Caso o navegador peça /Icones/...)
+@app.route('/Icones/<path:filename>')
+def servir_icones(filename):
+    icones_dir = os.path.join(frontend_dir, 'Icones')
+    return send_from_directory(icones_dir, filename)
+
 if __name__ == '__main__':
     # O Railway define a porta automaticamente
     port = int(os.getenv('PORT', 5000))
