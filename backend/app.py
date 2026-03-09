@@ -3,6 +3,10 @@ from flask_cors import CORS
 from models import db
 import os
 
+# Ajuste de caminhos: base_dir é a pasta 'backend'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+# frontend_dir sobe um nível e entra na pasta 'frontend'
+frontend_dir = os.path.abspath(os.path.join(base_dir, '..', 'frontend'))
 
 app = Flask(__name__)
 CORS(app)
@@ -11,18 +15,20 @@ CORS(app)
 def conectar_banco():
     db.conectar()
 
-# IMPORTAR ROUTES (que tem as rotas)
+# Importa as rotas do seu arquivo routes.py
 from routes import *
 
+# Rota principal para o index.html (O que o Railway testa)
 @app.route('/')
 def servir_frontend():
-    frontend_dir = os.path.join(os.path.dirname(app.root_path), 'frontend')
     return send_from_directory(frontend_dir, 'index.html')
 
-@app.route('/static/<path:filename>')
+# Rota para carregar style.css, script.js e imagens
+@app.route('/<path:filename>')
 def servir_arquivos(filename):
-    frontend_dir = os.path.join(os.path.dirname(app.root_path), 'frontend')
     return send_from_directory(frontend_dir, filename)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=False)
+    # O Railway define a porta automaticamente
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
