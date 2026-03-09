@@ -16,11 +16,13 @@ from routes import *
 
 @app.route('/')
 def servir_frontend():
-    return send_from_directory('../frontend', 'index.html')
+    frontend_dir = os.path.join(os.path.dirname(app.root_path), 'frontend')
+    return send_from_directory(frontend_dir, 'index.html')
 
 @app.route('/static/<path:filename>')
 def servir_arquivos(filename):
-    return send_from_directory('../frontend', filename)
+    frontend_dir = os.path.join(os.path.dirname(app.root_path), 'frontend')
+    return send_from_directory(frontend_dir, filename)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=False)
