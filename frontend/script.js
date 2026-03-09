@@ -70,7 +70,7 @@ function validarLogin() {
             senha: senha.value,
         }
 
-        fetch('https://agendamento-barbearia-production-a44f.up.railway.app/login', {
+        fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -190,7 +190,7 @@ function validarCadastro() {
             whatsapp: whatsapp.value
         }
 
-        fetch('https://agendamento-barbearia-production-a44f.up.railway.app/usuarios', {
+        fetch('/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -483,7 +483,7 @@ Barbearia Morais - Excelência em Cortes`
         return
     } else {
         window.open(`https://wa.me/5561998729994?text=${mensagemCodificada}`, '_blank')
-        fetch('https://agendamento-barbearia-production-a44f.up.railway.app/agendamentos', {
+        fetch('/agendamentos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
