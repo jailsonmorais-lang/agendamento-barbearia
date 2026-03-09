@@ -34,7 +34,7 @@ def servir_icones(filename):
     icones_dir = os.path.join(frontend_dir, 'Icones')
     return send_from_directory(icones_dir, filename)
 
+# ... todo o código anterior ...
+
 if __name__ == '__main__':
-    # O Railway define a porta automaticamente
-    port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host="0.0.0.0", port=5000, debug=True)  # debug=True para local
