@@ -19,6 +19,10 @@ def conectar_banco():
 from routes import *
 
 # Rota principal para o index.html (O que o Railway testa)
+@app.route('/health')
+def health():
+    return 'OK', 200
+
 @app.route('/')
 def servir_frontend():
     return send_from_directory(frontend_dir, 'index.html')
@@ -33,6 +37,7 @@ def servir_arquivos(filename):
 def servir_icones(filename):
     icones_dir = os.path.join(frontend_dir, 'Icones')
     return send_from_directory(icones_dir, filename)
+
 
 # ... todo o código anterior ...
 
