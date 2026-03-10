@@ -183,7 +183,7 @@ function validarCadastro() {
         erroCadastro.style.textShadow = erro
     } else {
 
-        const dadosParaCadastro = {
+        const dadosCadastro = {
             nome_completo: nomeCadastro.value,
             email: emailCadastro.value,
             senha: senhaCadastro.value,
@@ -192,24 +192,18 @@ function validarCadastro() {
 
         fetch('/usuarios', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dadosParaCadastro)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dadosCadastro)
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.Erro) {
-                    alert(data.Erro)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                if (dados.erro) {
+                    erroCadastro.innerHTML = dados.erro
                 } else {
-                    console.log('Resposta do Backend:', data);
-                    alert('Conta criada com sucesso!');
+                    erroCadastro.innerHTML = dados.mensagem
                 }
             })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Erro ao criar conta!');
-            });
+
         mudarTela('tela-login')
     }
 }

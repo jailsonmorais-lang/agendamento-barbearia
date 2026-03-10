@@ -1,15 +1,21 @@
-from flask import Flask, send_from_directory  # IMPORTA O FLASK PARA CRIAR O SERVIDOR
-from models import Database  # IMPORTA A CLASSE DATABASE DO MODELS.PY
+from flask import Flask, send_from_directory, jsonify
+from flask_cors import CORS
 import os
+from models import Database  # Adicionado o import necessário
+from routes import routes_bp # Importe o seu Blueprint
 
+app = Flask(__name__)
+CORS(app) 
+
+# Registra as rotas da API
+app.register_blueprint(routes_bp) 
+
+db = Database()
+
+# Definindo o caminho do frontend
 frontend_dir = os.path.join(os.path.dirname(__file__), '..', 'frontend')
 
-app = Flask(__name__) # CRIA O SERVIDOR FLASK
-
-
-db = Database() # CRIA UMA INSTÂNCIA DO BANCO DE DADOS
-
-@app.before_request # ANTES DE CADA REQUISIÇÃO, CONECTA AO BANCO
+@app.before_request
 def conectar_banco():
     db.conectar()
 
@@ -17,9 +23,13 @@ def conectar_banco():
 def servir_frontend():
     return send_from_directory(frontend_dir, 'index.html')
 
-@app.route('/<path:filename>')
-def servir_arquivos(filename):
-    return send_from_directory(frontend_dir, filename)
+@app.route('/<path:arquivo>')
+def servir_arquivos(arquivo):
+    endereco_do_arquivo = os.path.join(frontend_dir, arquivo)
+    if os.path.exists(endereco_do_arquivo) and not os.path.isdir(endereco_do_arquivo):
+        return send_from_directory(frontend_dir, arquivo)
+    
+    return jsonify({'erro': 'Recurso não encontrado'}), 404
 
-if __name__ == '__main__': # "estou sendo executado diretamente?"
-    app.run()  # Flask, começa a escutar requisições!
+if __name__ == '__main__':
+    app.run(debug=True)

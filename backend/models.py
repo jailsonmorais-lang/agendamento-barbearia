@@ -13,3 +13,14 @@ class Database:
             database=DB_DATABASE,
             port=DB_PORT
             )
+        
+    def obter_dados(self, query, valores=None):
+        escreva = self.connection.cursor(dictionary=True)
+        escreva.execute(query, valores)
+        return escreva.fetchall()
+    
+    def executar_query(self, query, valores=None):
+        escreva = self.connection.cursor()
+        escreva.execute(query, valores)
+        self.connection.commit()
+        return True
