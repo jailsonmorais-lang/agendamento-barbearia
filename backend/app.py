@@ -1,59 +1,25 @@
-from flask import Flask, send_from_directory
-from flask_cors import CORS
-from models import db
+from flask import Flask, send_from_directory  # IMPORTA O FLASK PARA CRIAR O SERVIDOR
+from models import Database  # IMPORTA A CLASSE DATABASE DO MODELS.PY
 import os
-import logging
 
-logging.basicConfig(level=logging.INFO)
+frontend_dir = os.path.join(os.path.dirname(__file__), '..', 'frontend')
 
-# Ajuste de caminhos: base_dir é a pasta 'backend'
-base_dir = os.path.dirname(os.path.abspath(__file__))
-# frontend_dir sobe um nível e entra na pasta 'frontend'
-frontend_dir = os.path.abspath(os.path.join(base_dir, '..', 'frontend'))
+app = Flask(__name__) # CRIA O SERVIDOR FLASK
 
-app = Flask(__name__)
-CORS(app)
 
-@app.before_request
+db = Database() # CRIA UMA INSTÂNCIA DO BANCO DE DADOS
+
+@app.before_request # ANTES DE CADA REQUISIÇÃO, CONECTA AO BANCO
 def conectar_banco():
     db.conectar()
-
-# Importa as rotas do seu arquivo routes.py
-from routes import *
-
-# Rota principal para o index.html (O que o Railway testa)
-@app.route('/health')
-def health():
-    return 'OK', 200
 
 @app.route('/')
 def servir_frontend():
     return send_from_directory(frontend_dir, 'index.html')
 
-# Rota para carregar style.css, script.js e imagens
 @app.route('/<path:filename>')
 def servir_arquivos(filename):
     return send_from_directory(frontend_dir, filename)
 
-# ROTA ESPECÍFICA PARA A PASTA ICONES (Caso o navegador peça /Icones/...)
-@app.route('/Icones/<path:filename>')
-def servir_icones(filename):
-    icones_dir = os.path.join(frontend_dir, 'Icones')
-    return send_from_directory(icones_dir, filename)
-
-
-# ... todo o código anterior ...
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000, debug=True)  # debug=True para local
-
-@app.before_first_request
-def debug_paths():
-    logging.info(f"Current working dir: {os.getcwd()}")
-    logging.info(f"__file__: {__file__}")
-    logging.info(f"Frontend dir: {frontend_dir}")
-    index_path = os.path.join(frontend_dir, 'index.html')
-    logging.info(f"index.html full path: {index_path}")
-    logging.info(f"index.html exists? {os.path.exists(index_path)}")
-    if not os.path.exists(index_path):
-        logging.error("index.html NÃO ENCONTRADO - verifique pasta frontend no git")
+if __name__ == '__main__': # "estou sendo executado diretamente?"
+    app.run()  # Flask, começa a escutar requisições!
